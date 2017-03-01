@@ -127,11 +127,11 @@ public class MyLinkedList {
 		}
 	}
 	
-	public void add(int index, int value) throws ListEmptyException {
-		if(isEmpty()==true){
-			throw new ListEmptyException();
+	public void add(int index, int value) throws IndexOutOfBoundsException {
+		if(index > size() || index < size()){
+			throw new IndexOutOfBoundsException();
 		} else {
-			Node pastone = head.getNext();
+			Node pastone = head;
 			for(int i=0;i<index;i++){
 				if(pastone.getNext()!=null){
 					pastone = pastone.getNext();
@@ -139,7 +139,7 @@ public class MyLinkedList {
 					throw new IndexOutOfBoundsException();
 				}
 			}
-			
+
 			Node newnode = new Node(value, pastone.getNext());
 			pastone.setNext(newnode);
 		}
@@ -149,8 +149,22 @@ public class MyLinkedList {
 		return new Object();
 	}
 	
-	public Object remove(){
-		return new Object();
+	public void remove(int index) throws IndexOutOfBoundsException {
+		if(index < size() || index > size()){
+			throw new IndexOutOfBoundsException();
+		} else {
+			Node pastone = head;
+			for(int i=0;i<index;i++){
+				if(i>0){
+					if(pastone.getNext()!=null){
+						pastone = pastone.getNext();
+					} else {
+						throw new IndexOutOfBoundsException();
+					}
+				}
+			}
+			pastone.setNext(pastone.getNext());
+		}
 	}
 
 }
