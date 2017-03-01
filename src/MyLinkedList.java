@@ -1,150 +1,156 @@
-
 public class MyLinkedList {
 	
-	private Node head;
+	private Node head = null;
 	
-	class Node{
-		private int value;
+	class Node {
+		private Object element;
 		private Node next;
 		
-		public Node(int value){
-			this.value = value;
+		public Node(){
+			element = null;
 			next = null;
 		}
 		
-		public Node(Node position, int value){
-			this.value = value;
-			next = position;
-		}
-		
-		public Node getPointer(){
-			return next;
-		}
-		
-		public void setPointer(Node next){
+		public Node(Object element, Node next){
+			this.element = element;
 			this.next = next;
 		}
 		
-		public int getValue(){
-			return value;
+		public Node getNext(){
+			
+			return next;
+		}
+		
+		public void setNext(Node next){
+			this.next = next;
+		}
+		
+		public Object getElement(){
+			
+			return element;
 		}
 	}
 	
+	
 	public MyLinkedList(){
-		head = new Node(0);
+		head = new Node();
 	}
 	
 	public int size(){
-		Node currentnode = head;
-		int counter = 1;
-		
-		while(currentnode.getPointer()!=null){
-			currentnode = currentnode.getPointer();
-			counter++;
-		}
-		
-		return counter;
-	}
-	
-	public int getFirst(){
-		return head.getValue();
-	}
-	
-	public int get(int position){
-		Node currentnode = head;
-		
-		for(int i=0;i<position;i++){
-			currentnode=currentnode.getPointer();
-		}
-
-		return currentnode.getValue();
-	}
-	
-	public void addFirst(int value){
-		head.setPointer(new Node(value));
-	}
-	
-	public void add(int position, int value){
-		Node currentnode = head;
-		
-		// Loop through nodes until we reach our position to add the new node
-		for(int i=0;i<position;i++){
-			if(currentnode.getPointer()!=null){
-				currentnode = currentnode.getPointer();
-			} else {
-				currentnode = currentnode.getPointer();
-				break;
-			}
-		}
-		
-		Node newnode = new Node(value);
-		newnode.setPointer(currentnode.getPointer());
-		currentnode.setPointer(newnode);
-	}
-	
-	public void addLast(int value){
-		Node currentnode = head.getPointer();
-		
-		while(currentnode.getPointer()!=null){
-			currentnode = currentnode.getPointer();
-		}
-		
-		currentnode.setPointer(new Node(value));
-	}
-	
-	public int getLast(){
-		Node currentnode = head.getPointer();
-		
-		while(currentnode.getPointer()!=null){
-			currentnode = currentnode.getPointer();
-		}
-		return currentnode.getValue();
-	}
-	
-	public void removeFirst(){
-		if(head.getPointer()!=null){
-			head = head.getPointer();
-		}
-	}
-	
-	public void remove(int position){
-		Node currentnode = head;
-		
-		for(int i=0;i<position;i++){
-			if(currentnode.getPointer()==null){
-				System.out.println("Node is out of ranche");
-				break;
-			} else {
-				currentnode = currentnode.getPointer();
-			}
-		}
-		
-		// One below target
-		if(currentnode.getPointer()==null){
-			currentnode.setPointer(null);
+		int counter = 0;
+		if(isEmpty()==true){
+			return counter;
 		} else {
-			if(currentnode.getPointer().getPointer()==null){
-				currentnode.setPointer(null);
-			} else {
-				currentnode.setPointer(currentnode.getPointer().getPointer());
-			}
+			Node pastone = head;
+			do{
+				pastone = pastone.getNext();
+				counter++;
+			}while(pastone.getNext()!=null);
+			return counter;
 		}
-		
 	}
 	
-	public void removeLast(){
-		Node currentnode = head;
-		
-		while(currentnode.getPointer()!=null){
-			if(currentnode.getPointer()==null){
-				break;
-			} else {
-				currentnode = currentnode.getPointer();
-			}
+	// DONE
+	public boolean isEmpty(){
+		if(head.getNext()==null){
+			return true;
+		} else {
+			return false;
 		}
-		currentnode.setPointer(null);
 	}
 	
+	public void addFirst(Object data){
+		Node newnode = new Node(data,head.getNext());
+		head.setNext(newnode);
+	}
+	
+	// DONE
+	public Object getFirst() throws ListEmptyException {
+		if(isEmpty()==true){
+			throw new ListEmptyException();
+		} else {
+			return head.getNext().getElement();
+		}
+	}
+	
+	public Object removeFirst() throws ListEmptyException {
+		if(isEmpty()==true){
+			throw new ListEmptyException();
+		} else {
+			Object pastone = head.getNext().getElement();
+			head.setNext(head.getNext().getNext());
+			return pastone;
+		}
+	}
+	
+	public void addLast(Object data) {
+		if(isEmpty()==true){
+			Node newnode = new Node(data,null);
+			head.setNext(newnode);
+		} else {
+			Node pastone = head.getNext();
+			while(pastone.getNext()!=null){
+				pastone = pastone.getNext();
+			}
+			
+			Node newnode = new Node(data, null);
+			pastone.setNext(newnode);
+		}
 
+	}
+	
+	public Object getLast() throws ListEmptyException {
+		if(isEmpty()==true){
+			throw new ListEmptyException();
+		} else {
+			Node pastone = head.getNext();
+			while(pastone.getNext()!=null){
+				pastone = pastone.getNext();
+			}
+			
+			return pastone.getElement();
+		}
+	}
+	
+	public Object removeLast() throws ListEmptyException {
+		if(isEmpty()==true){
+			throw new ListEmptyException();
+		} else {
+			Node pastone = head.getNext();
+			while(pastone.getNext().getNext()!=null){
+				pastone = pastone.getNext();
+			}
+			
+			Object removednode = pastone.getNext().getElement();
+			pastone.setNext(null);
+			return removednode;
+		}
+	}
+	
+	public void add(int index, int value) throws ListEmptyException {
+		if(isEmpty()==true){
+			throw new ListEmptyException();
+		} else {
+			Node pastone = head.getNext();
+			for(int i=0;i<index;i++){
+				if(pastone.getNext()!=null){
+					pastone = pastone.getNext();
+				} else {
+					throw new IndexOutOfBoundsException();
+				}
+			}
+			
+			Node newnode = new Node(value, pastone.getNext());
+			pastone.setNext(newnode);
+		}
+	}
+	
+	public Object get(){
+		return new Object();
+	}
+	
+	public Object remove(){
+		return new Object();
+	}
 
 }

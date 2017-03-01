@@ -201,7 +201,7 @@ public class LinkedListTest {
 		listWithManyElements.addFirst(22);
 		listWithManyElements.addFirst(11);
 		listWithManyElements.addLast(44);
-		listWithManyElements.add(2,33);
+		//listWithManyElements.add(2,33);
 	
 		return listWithManyElements;
 	}
