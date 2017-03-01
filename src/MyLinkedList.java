@@ -1,3 +1,4 @@
+
 public class MyLinkedList {
 	
 	private Node head = null;
@@ -50,7 +51,6 @@ public class MyLinkedList {
 		}
 	}
 	
-	// DONE
 	public boolean isEmpty(){
 		if(head.getNext()==null){
 			return true;
@@ -64,7 +64,6 @@ public class MyLinkedList {
 		head.setNext(newnode);
 	}
 	
-	// DONE
 	public Object getFirst() throws ListEmptyException {
 		if(isEmpty()==true){
 			throw new ListEmptyException();
