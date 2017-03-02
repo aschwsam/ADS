@@ -95,7 +95,6 @@ public class MyLinkedList {
 			Node newnode = new Node(data, null);
 			pastone.setNext(newnode);
 		}
-
 	}
 	
 	public int getLast() throws ListEmptyException {
@@ -132,47 +131,38 @@ public class MyLinkedList {
 		} else {
 			Node pastone = head;
 			for(int i=0;i<index;i++){
-				if(pastone.getNext()!=null){
-					pastone = pastone.getNext();
-				} else {
-					throw new IndexOutOfBoundsException();
-				}
+				pastone = pastone.getNext();
 			}
 
-			Node newnode = new Node(value, pastone.getNext());
+			Node newnode = new Node(value,pastone.getNext());
 			pastone.setNext(newnode);
 		}
 	}
 	
 	public int get(int index) throws IndexOutOfBoundsException {
-		System.out.println("GET");
 		if(index > size() || index < 0){
 			throw new IndexOutOfBoundsException();
 		} else {
 			Node pastone = head;
-			for(int i=-1;i<index;i++){
-				System.out.println(pastone.getElement());
+			for(int i=0;i<index;i++){
 				pastone = pastone.getNext();
 			}
-			System.out.println("==>"+pastone.getElement());
-			return pastone.getElement();
+			
+			return pastone.getNext().getElement();
 		}
 	}
 	
 	public int remove(int index) throws IndexOutOfBoundsException {
-		System.out.println("REMOVE");
-		if(index > size() || index < 0){
+		if(index > (size()+1) || index < 0){
 			throw new IndexOutOfBoundsException();
 		} else {
 			Node pastone = head;
-			for(int i=-1;i<index;i++){
-				System.out.println(pastone.getElement());
+			for(int i=1;i<index;i++){
 				pastone = pastone.getNext();
 			}
-			
-			System.out.println("===>"+pastone.getElement());
-			pastone.setNext(pastone.getNext());
-			return pastone.getElement();
+		
+			pastone.setNext(pastone.getNext().getNext());
+			return pastone.getNext().getElement();
 		}
 	}
 
