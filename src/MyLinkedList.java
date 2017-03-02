@@ -4,15 +4,15 @@ public class MyLinkedList {
 	private Node head = null;
 	
 	class Node {
-		private Object element;
+		private int element;
 		private Node next;
 		
 		public Node(){
-			element = null;
+			element = 0;
 			next = null;
 		}
 		
-		public Node(Object element, Node next){
+		public Node(int element, Node next){
 			this.element = element;
 			this.next = next;
 		}
@@ -26,7 +26,7 @@ public class MyLinkedList {
 			this.next = next;
 		}
 		
-		public Object getElement(){
+		public int getElement(){
 			
 			return element;
 		}
@@ -59,12 +59,12 @@ public class MyLinkedList {
 		}
 	}
 	
-	public void addFirst(Object data){
+	public void addFirst(int data){
 		Node newnode = new Node(data,head.getNext());
 		head.setNext(newnode);
 	}
 	
-	public Object getFirst() throws ListEmptyException {
+	public int getFirst() throws ListEmptyException {
 		if(isEmpty()==true){
 			throw new ListEmptyException();
 		} else {
@@ -72,17 +72,17 @@ public class MyLinkedList {
 		}
 	}
 	
-	public Object removeFirst() throws ListEmptyException {
+	public int removeFirst() throws ListEmptyException {
 		if(isEmpty()==true){
 			throw new ListEmptyException();
 		} else {
-			Object pastone = head.getNext().getElement();
+			int pastone = head.getNext().getElement();
 			head.setNext(head.getNext().getNext());
 			return pastone;
 		}
 	}
 	
-	public void addLast(Object data) {
+	public void addLast(int data) {
 		if(isEmpty()==true){
 			Node newnode = new Node(data,null);
 			head.setNext(newnode);
@@ -98,7 +98,7 @@ public class MyLinkedList {
 
 	}
 	
-	public Object getLast() throws ListEmptyException {
+	public int getLast() throws ListEmptyException {
 		if(isEmpty()==true){
 			throw new ListEmptyException();
 		} else {
@@ -111,7 +111,7 @@ public class MyLinkedList {
 		}
 	}
 	
-	public Object removeLast() throws ListEmptyException {
+	public int removeLast() throws ListEmptyException {
 		if(isEmpty()==true){
 			throw new ListEmptyException();
 		} else {
@@ -120,7 +120,7 @@ public class MyLinkedList {
 				pastone = pastone.getNext();
 			}
 			
-			Object removednode = pastone.getNext().getElement();
+			int removednode = pastone.getNext().getElement();
 			pastone.setNext(null);
 			return removednode;
 		}
@@ -144,8 +144,16 @@ public class MyLinkedList {
 		}
 	}
 	
-	public Object get(){
-		return new Object();
+	public int get(int index) throws IndexOutOfBoundsException {
+		if(index < size()){
+			throw new IndexOutOfBoundsException();
+		} else {
+			Node pastone = head;
+			for(int i=0;i<index;i++){
+				pastone = pastone.getNext();
+			}
+			return pastone.getElement();
+		}
 	}
 	
 	public void remove(int index) throws IndexOutOfBoundsException {
