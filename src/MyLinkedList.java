@@ -127,7 +127,7 @@ public class MyLinkedList {
 	}
 	
 	public void add(int index, int value) throws IndexOutOfBoundsException {
-		if(index > size() || index < size()){
+		if(index > (size()+1) || index < 0){
 			throw new IndexOutOfBoundsException();
 		} else {
 			Node pastone = head;
@@ -145,32 +145,34 @@ public class MyLinkedList {
 	}
 	
 	public int get(int index) throws IndexOutOfBoundsException {
-		if(index < size()){
+		System.out.println("GET");
+		if(index > size() || index < 0){
 			throw new IndexOutOfBoundsException();
 		} else {
 			Node pastone = head;
-			for(int i=0;i<index;i++){
+			for(int i=-1;i<index;i++){
+				System.out.println(pastone.getElement());
 				pastone = pastone.getNext();
 			}
+			System.out.println("==>"+pastone.getElement());
 			return pastone.getElement();
 		}
 	}
 	
-	public void remove(int index) throws IndexOutOfBoundsException {
-		if(index < size() || index > size()){
+	public int remove(int index) throws IndexOutOfBoundsException {
+		System.out.println("REMOVE");
+		if(index > size() || index < 0){
 			throw new IndexOutOfBoundsException();
 		} else {
 			Node pastone = head;
-			for(int i=0;i<index;i++){
-				if(i>0){
-					if(pastone.getNext()!=null){
-						pastone = pastone.getNext();
-					} else {
-						throw new IndexOutOfBoundsException();
-					}
-				}
+			for(int i=-1;i<index;i++){
+				System.out.println(pastone.getElement());
+				pastone = pastone.getNext();
 			}
+			
+			System.out.println("===>"+pastone.getElement());
 			pastone.setNext(pastone.getNext());
+			return pastone.getElement();
 		}
 	}
 
