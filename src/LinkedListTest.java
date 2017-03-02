@@ -11,7 +11,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void shouldReturnElementAtLastPosition() throws ListEmptyException{
-		assertEquals(55, createListWithManyElements().getLast());
+		assertEquals(44, createListWithManyElements().getLast());
 	}
 	
 	@Test
@@ -201,8 +201,7 @@ public class LinkedListTest {
 		listWithManyElements.addFirst(22);
 		listWithManyElements.addFirst(11);
 		listWithManyElements.addLast(44);
-		listWithManyElements.addLast(55);
-		//listWithManyElements.add(2,33);
+		listWithManyElements.add(2,33);
 	
 		return listWithManyElements;
 	}
