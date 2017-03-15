@@ -1,7 +1,11 @@
 /**
  * Class for modeling a node of a binary search tree.
  */
+<<<<<<< HEAD
 public final class TreeNodeASD<E extends Comparable<E>> {
+=======
+public final class TreeNodePenis<E extends Comparable<E>> {
+>>>>>>> origin/master
 
     private E element;
     private TreeNode<E> left;
