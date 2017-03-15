@@ -35,11 +35,14 @@ public class BinaryTree <Integer>{
 	}
 
 	public ArrayList<Integer> traversePostorder(){
+	    return newPostorder();
+	    /*
 		ElementList = new ArrayList<Integer>();
 		traversePostorder( head);
-		return ElementList;
+		return ElementList;*/
 		}
-		/*
+
+    /*
 	 * Postorder traversal
 	 */
 	public void traversePostorder(TreeNode currentNode){
@@ -64,7 +67,7 @@ public class BinaryTree <Integer>{
 
 
     public ArrayList<Integer> traversePreorder(TreeNode node, ArrayList<Integer> list) {
-        list.add((Integer)node.getElement());
+        if(node.hasElement()){list.add((Integer)node.getElement());}
         if (node.hasLeft()) {
            list = traversePreorder(node.getLeft(), list);
         } if (node.hasRight()) {
@@ -73,13 +76,40 @@ public class BinaryTree <Integer>{
         return list;
     }
 
+    public ArrayList<Integer> traverseInorder() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        traverseInorder(head, list);
+        return list;
+    }
+    public ArrayList<Integer>traverseInorder(TreeNode node, ArrayList<Integer>list){
+        if (node.hasLeft()) {
+            list = traverseInorder(node.getLeft(), list);
+        }
+        if(node.hasElement()){list.add((Integer)node.getElement());}
+        if (node.hasRight()) {
+            list = traverseInorder(node.getRight(), list);
+        }
+        return list;
+    }
+    public ArrayList<Integer>newPostorder(){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        newPostorder(head, list);
+        return list;
+    }
+    public ArrayList<Integer>newPostorder(TreeNode node, ArrayList<Integer>list){
+        if (node.hasLeft()) {
+            list = newPostorder(node.getLeft(), list);
+        }
 
-    public ArrayList<java.lang.Integer> traverseInorder() {
-        return null;
+        if (node.hasRight()) {
+            list = newPostorder(node.getRight(), list);
+        }
+        if(node.hasElement()){list.add((Integer)node.getElement());}
+        return list;
     }
 
-
     public ArrayList<Integer> traverseLevelorder() {
+
         return null;
     }
 
