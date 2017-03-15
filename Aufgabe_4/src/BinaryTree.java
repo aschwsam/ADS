@@ -4,7 +4,7 @@ public class BinaryTree <Integer>{
 
 	private TreeNode head = new TreeNode(null);
 	private TreeNode nullNode =  new TreeNode(null);
-	private ArrayList<Integer> ElementList = new ArrayList<Integer>();
+	private ArrayList<Integer> ElementList;
 	
 	public static void main (String Args[]){
 		
@@ -35,8 +35,8 @@ public class BinaryTree <Integer>{
 	}
 	
 	public ArrayList<Integer> traversePostorder(){
+		ElementList = new ArrayList<Integer>();
 		traversePostorder(head);
-		System.out.println(ElementList.size());
 		return ElementList;
 	}
 	
