@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 import java.util.ArrayList;
 
@@ -67,11 +68,9 @@ public class TreeNodeTraversierungTest {
 		testArrayList.add(12);
 		testArrayList.add(56);
 		testArrayList.add(77);
-		
 		createTwoNodeBinaeryTree();
 		ArrayList<Integer> preorderArrayList = twoNodeTree.traversePreorder();
-		
-		assertEquals(preorderArrayList,testArrayList);
+		assertEquals(testArrayList,preorderArrayList);
 	}
 	
 	@Test
