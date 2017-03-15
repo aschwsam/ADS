@@ -1,3 +1,5 @@
+import sun.reflect.generics.tree.Tree;
+
 import java.util.ArrayList;
 
 public class BinaryTree <Integer>{
@@ -46,12 +48,27 @@ public class BinaryTree <Integer>{
 		}
 		
 		while(!parent.equals(head)) {
-			
-			
+
 		}
 		elements.add((Integer)node.getElement());
 		
 		
 		return elements;
 	}
+
+	public ArrayList<Integer> traversePreorder(){
+	    traversePreorder(head);
+    }
+    public traversePreorder(TreeNode node){
+        TreeNode left = node.getLeft();
+        TreeNode right = node.getRight();
+        if(node.hasLeft(){
+            traversePreorder(node.getLeft());
+        }else {
+        if(node.hasRight(){
+            traversePreorder(node.getRight();
+        }
+        }
+
+    }
 }
