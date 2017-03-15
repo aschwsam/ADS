@@ -103,4 +103,13 @@ public final class TreeNode<E extends Comparable<E>> {
     public boolean hasRight() {
         return right != null;
     }
+
+
+    /**
+     * Check if the current node is not null
+     * @return
+     */
+    public boolean hasElement(){
+        return element !=null;
+    }
 }
