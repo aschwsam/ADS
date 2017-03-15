@@ -1,12 +1,12 @@
 /**
  * Class for modeling a node of a binary search tree.
- *
  */
 public final class TreeNode<E extends Comparable<E>> {
 
     private E element;
     private TreeNode<E> left;
     private TreeNode<E> right;
+
 
     /**
      * Creates a new node which stores the given element.
@@ -16,6 +16,7 @@ public final class TreeNode<E extends Comparable<E>> {
     public TreeNode(E element) {
         this.element = element;
     }
+
 
     /**
      * Returns a string representing the node.
@@ -27,6 +28,7 @@ public final class TreeNode<E extends Comparable<E>> {
         return (getClass().getName() + "[" + "element=" + element + "]");
     }
 
+
     /**
      * Returns the element contained by the node.
      *
@@ -35,6 +37,7 @@ public final class TreeNode<E extends Comparable<E>> {
     public E getElement() {
         return element;
     }
+
 
     /**
      * Sets the element, which the node contains.
@@ -45,6 +48,7 @@ public final class TreeNode<E extends Comparable<E>> {
         this.element = element;
     }
 
+
     /**
      * Returns the left child of the node.
      *
@@ -53,6 +57,7 @@ public final class TreeNode<E extends Comparable<E>> {
     public TreeNode<E> getLeft() {
         return left;
     }
+
 
     /**
      * Sets the left child of the node.
@@ -63,6 +68,7 @@ public final class TreeNode<E extends Comparable<E>> {
         this.left = left;
     }
 
+
     /**
      * Returns the right child of the node.
      *
@@ -72,6 +78,7 @@ public final class TreeNode<E extends Comparable<E>> {
         return right;
     }
 
+
     /**
      * Sets the right child of the node
      *
@@ -79,5 +86,21 @@ public final class TreeNode<E extends Comparable<E>> {
      */
     public void setRight(TreeNode<E> right) {
         this.right = right;
+    }
+
+    /**
+     * Check if the current node has a left child
+     * @return
+     */
+    public boolean hasLeft() {
+        return left != null;
+    }
+
+    /**
+     * Check if the current node has a right child
+     * @return
+     */
+    public boolean hasRight() {
+        return right != null;
     }
 }
