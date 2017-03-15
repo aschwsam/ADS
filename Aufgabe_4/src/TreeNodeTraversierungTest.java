@@ -16,9 +16,9 @@ public class TreeNodeTraversierungTest {
 	@Test
 	public void shouldReturnAEmptyListWhenTraversingAnEmptyTree(){
 		assertTrue(emptyTree.traversePostorder().isEmpty());
-		//assertTrue(emptyTree.traverseLevelorder().isEmpty());
-		//assertTrue(emptyTree.traversePreorder().isEmpty());
-		//assertTrue(emptyTree.traversePostorder().isEmpty());
+		assertTrue(emptyTree.traverseLevelorder().isEmpty());
+		assertTrue(emptyTree.traversePreorder().isEmpty());
+		assertTrue(emptyTree.traversePostorder().isEmpty());
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class TreeNodeTraversierungTest {
         assertEquals(rootNodeTree, onlyRootNodeTree.traversePostorder());
 		assertEquals(rootNodeTree, onlyRootNodeTree.traversePreorder());
 		assertEquals(rootNodeTree, onlyRootNodeTree.traverseInorder());
-		//assertEquals(rootNodeTree, onlyRootNodeTree.traverseLevelorder());
+		assertEquals(rootNodeTree, onlyRootNodeTree.traverseLevelorder());
 	}
 	
 	
