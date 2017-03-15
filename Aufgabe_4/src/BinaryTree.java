@@ -4,6 +4,7 @@ public class BinaryTree <Integer>{
 
 	private TreeNode head = new TreeNode(null);
 	private TreeNode nullNode =  new TreeNode(null);
+	private ArrayList<Integer> ElementList = new ArrayList<Integer>();
 	
 	public static void main (String Args[]){
 		
@@ -15,8 +16,7 @@ public class BinaryTree <Integer>{
 	 */
 	public BinaryTree(){
 		head.setRight(nullNode);
-		nullNode.setLeft(nullNode);
-		nullNode.setRight(nullNode);
+		head.setLeft(nullNode);
 	}
 	
 	/**
@@ -35,23 +35,26 @@ public class BinaryTree <Integer>{
 	}
 	
 	public ArrayList<Integer> traversePostorder(){
-		ArrayList<Integer> elements = new ArrayList<Integer>();
-		TreeNode node = head.getRight();
-		TreeNode parent = head.getRight();
-		
-		// Go to the far left side of the tree
-		while(!node.getLeft().equals(nullNode)){
-			parent = node;
-			node = node.getLeft();
+		traversePostorder(head);
+		System.out.println(ElementList.size());
+		return ElementList;
+	}
+	
+	/* 
+	 * Postorder traversal
+	 */
+	public void traversePostorder(TreeNode currentNode){
+		// End of tree left side
+		if(!currentNode.equals(nullNode))
+		{
+			if(!currentNode.getLeft().equals(null)){
+				traversePostorder(currentNode.getLeft());
+				
+				// End of tree right side
+				traversePostorder(currentNode.getRight());
+			} else {
+				ElementList.add((Integer)currentNode.getElement());
+			}
 		}
-		
-		while(!parent.equals(head)) {
-			
-			
-		}
-		elements.add((Integer)node.getElement());
-		
-		
-		return elements;
 	}
 }
