@@ -50,14 +50,7 @@ public final class Competitor implements Comparable<Competitor> {
 
     @Override
     public String toString() {
-        String string = new String();
-        string.concat(String.valueOf(number)+": ");
-        string.concat(firstName);
-        string.concat(lastName);
-        string.concat("("+yearOfBirth+"),");
-        string.concat(city+",");
-        string.concat("-->"+time);
-        return string;
+        return number+": "+firstName+" "+lastName+" ("+yearOfBirth+"), "+city+"  --> "+returnTimeString();
     }
 
 
@@ -66,6 +59,14 @@ public final class Competitor implements Comparable<Competitor> {
         if(this.lastName.compareTo(competitor.getLastName())!=0){
             return this.lastName.compareTo(competitor.getLastName());
         }else return this.firstName.compareTo(competitor.getFirstName());
+    }
+
+    public boolean isBiggerThan(Competitor competitor){
+        if(this.compareTo(competitor)>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

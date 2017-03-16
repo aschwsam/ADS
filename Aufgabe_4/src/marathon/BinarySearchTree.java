@@ -1,18 +1,12 @@
 package marathon;
 
-
 import binarytree.TreeNode;
 
-
-/**
- * Created by stephan on 16.03.17.
- */
 public class BinarySearchTree<E extends Comparable<E>> extends binarytree.BinaryTree {
 
     public BinarySearchTree() {
         super();
     }
-
 
     public void add(E element) {
         if (this.getRoot() != null) {
@@ -31,6 +25,9 @@ public class BinarySearchTree<E extends Comparable<E>> extends binarytree.Binary
                         node = node.getRight();
                     }
                 }
+                else{
+                    node=node.getLeft();
+                }
             }
         } else {
             this.setRoot(new TreeNode(element));
@@ -38,7 +35,17 @@ public class BinarySearchTree<E extends Comparable<E>> extends binarytree.Binary
     }
 
 
-    public void find() {
-
+    public E find(E needle, TreeNode haystack){
+        // check if names match
+        if(needle.equals(haystack.getElement())){
+            return needle;
+        } else {
+            // bigger => right, smaller => left
+            if(needle.compareTo((E)haystack.getElement())>0){
+                return find(needle,haystack.getRight());
+            } else {
+                return find(needle,haystack.getLeft());
+            }
+        }
     }
 }
