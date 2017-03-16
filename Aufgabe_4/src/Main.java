@@ -15,7 +15,8 @@ public class Main {
             searchTree.add(at);
         }
         for(Object competitor: searchTree.traverseInorder()){
-            System.out.println(competitor.toString());
+            System.out.println(((Competitor)competitor).toString());
         }
+        searchTree.find(athlets.get(0),searchTree.getRoot());
     }
 }
