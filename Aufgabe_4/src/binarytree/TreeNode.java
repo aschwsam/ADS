@@ -85,34 +85,9 @@ public final class TreeNode<E extends Comparable<E>> {
     /**
      * Sets the right child of the node
      *
-     * @param left the right child node, may be set to <code>null</code> to signify that no right child exists
+     * @param right the right child node, may be set to <code>null</code> to signify that no right child exists
      */
     public void setRight(TreeNode<E> right) {
         this.right = right;
-    }
-
-    /**
-     * Check if the current node has a left child
-     * @return
-     */
-    public boolean hasLeft() {
-        return left != null;
-    }
-
-    /**
-     * Check if the current node has a right child
-     * @return
-     */
-    public boolean hasRight() {
-        return right != null;
-    }
-
-
-    /**
-     * Check if the current node is not null
-     * @return
-     */
-    public boolean hasElement(){
-        return element !=null;
     }
 }
