@@ -2,79 +2,60 @@ package binarytree;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 
-public class BinaryTree<Integer> {
-//@todo use generics remove custom methods from treenode
-    private TreeNode head = new TreeNode(null);
-    private TreeNode nullNode = new TreeNode(null);
-    private ArrayList<Integer> ElementList;
-
-
-    public static void main(String Args[]) {
-
-    }
-
+public class BinaryTree<E extends Comparable<E>> {
+    private TreeNode root;
 
     /**
      * Constructor for empty tree
      * Head (null) points to leaf (null)
      */
     public BinaryTree() {
-        head.setRight(nullNode);
-        head.setLeft(nullNode);
-
     }
 
 
     /**
-     * Construtor for Tree with nodes
+     * Constructor for Tree with nodes
      * Head (Integer) points to first Node which points
      * to leaf (null)
      */
     public BinaryTree(int element) {
-        head.setRight(new TreeNode(element));
-        head.getRight().setLeft(nullNode);
-        head.getRight().setRight(nullNode);
+        root = new TreeNode(element);
     }
 
 
     public TreeNode getRoot() {
-        return head.getRight();
+        return root;
+    }
+
+
+    public void setRoot(TreeNode rootNode) {
+        root = rootNode;
     }
 
 
     public ArrayList<Integer> traversePostorder() {
-        return newPostorder();
-        /*
-        ElementList = new ArrayList<Integer>();
-		traversePostorder( head);
-		return ElementList;*/
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        traversePostorder(root, list);
+        return list;
     }
 
 
-    /*
-	 * Postorder traversal
-	 */
-    public void traversePostorder(TreeNode currentNode) {
-        // End of  treeleft side
-        if (!currentNode.equals(nullNode)) {
-            if (!currentNode.getLeft().equals(null)) {
-                traversePostorder(currentNode.getLeft());
-
-                // End of tree right side
-                traversePostorder(currentNode.getRight());
-            } else {
-                ElementList.add((Integer)currentNode.getElement());
-            }
+    public ArrayList<Integer> traversePostorder(TreeNode node, ArrayList<Integer> list) {
+        if (node != null) {
+            list = traversePostorder(node.getLeft(), list);
+            list = traversePostorder(node.getRight(), list);
+            list.add((Integer)node.getElement());
         }
-
+        return list;
     }
 
 
     public ArrayList<Integer> traversePreorder() {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        traversePreorder(head, list);
+        traversePreorder(root, list);
         return list;
     }
 
@@ -91,42 +72,16 @@ public class BinaryTree<Integer> {
 
     public ArrayList<Integer> traverseInorder() {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        traverseInorder(head, list);
+        traverseInorder(root, list);
         return list;
     }
 
 
     public ArrayList<Integer> traverseInorder(TreeNode node, ArrayList<Integer> list) {
-        if (node.hasLeft()) {
+        if (node != null) {
             list = traverseInorder(node.getLeft(), list);
-        }
-        if (node.hasElement()) {
             list.add((Integer)node.getElement());
-        }
-        if (node.hasRight()) {
             list = traverseInorder(node.getRight(), list);
-        }
-        return list;
-    }
-
-
-    public ArrayList<Integer> newPostorder() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        newPostorder(head, list);
-        return list;
-    }
-
-
-    public ArrayList<Integer> newPostorder(TreeNode node, ArrayList<Integer> list) {
-        if (node.hasLeft()) {
-            list = newPostorder(node.getLeft(), list);
-        }
-
-        if (node.hasRight()) {
-            list = newPostorder(node.getRight(), list);
-        }
-        if (node.hasElement()) {
-            list.add((Integer)node.getElement());
         }
         return list;
     }
@@ -136,14 +91,12 @@ public class BinaryTree<Integer> {
         ArrayList<Integer> list = new ArrayList<>();
         MyQueue queue = new MyQueue();
         TreeNode node;
-        queue.add(head);
+        queue.add(root);
         while (!queue.isEmpty()) {
             node = (TreeNode)queue.remove();
-            if(node.hasElement()){list.add((Integer)node.getElement());}
-            if (node.hasLeft()) {
+            if (node != null) {
+                list.add((Integer)node.getElement());
                 queue.add(node.getLeft());
-            }
-            if (node.hasRight()) {
                 queue.add(node.getRight());
             }
         }
@@ -151,7 +104,4 @@ public class BinaryTree<Integer> {
     }
 
 
-    public void setRoot(TreeNode rootNode) {
-        head = rootNode;
-    }
 }
