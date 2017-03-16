@@ -5,7 +5,6 @@ import org.junit.*;
 
 import java.text.ParseException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -33,10 +32,12 @@ public class CompetitorTest {
         assertFalse(stephan.compareTo(sam) == 0);
     }
 
+
     @Test
-    public void shouldbeSame(){
+    public void shouldbeSame() {
         assertTrue(stephan.compareTo(stephan) == 0);
     }
+
 
     @Test
     public void shouldConvertToString() {

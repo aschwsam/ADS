@@ -8,29 +8,29 @@ public class BinarySearchTree<E extends Comparable<E>> extends binarytree.Binary
         super();
     }
 
-    public void add(E element) {
+    public void add(E addition) {
         if (this.getRoot() != null) {
-            TreeNode node = this.getRoot();
-            while (node != null) {
-                if (node.getElement().compareTo(element) > 0) {
-                    if (node.getLeft() == null) {
-                        node.setLeft(new TreeNode<E>(element));
+            TreeNode currentNode = this.getRoot();
+            while (currentNode != null) {
+                if (currentNode.getElement().compareTo(addition) > 0) {
+                    if (currentNode.getLeft() == null) {
+                        currentNode.setLeft(new TreeNode<E>(addition));
                     } else {
-                        node = node.getLeft();
+                        currentNode = currentNode.getLeft();
                     }
-                } else if (node.getElement().compareTo(element) < 0) {
-                    if (node.getRight() == null) {
-                        node.setRight(new TreeNode<E>(element));
+                } else if (currentNode.getElement().compareTo(addition) < 0) {
+                    if (currentNode.getRight() == null) {
+                        currentNode.setRight(new TreeNode<E>(addition));
                     } else {
-                        node = node.getRight();
+                        currentNode = currentNode.getRight();
                     }
                 }
                 else{
-                    node=node.getLeft();
+                    currentNode=currentNode.getLeft();
                 }
             }
         } else {
-            this.setRoot(new TreeNode(element));
+            this.setRoot(new TreeNode(addition));
         }
     }
 

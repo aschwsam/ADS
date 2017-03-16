@@ -61,14 +61,6 @@ public final class Competitor implements Comparable<Competitor> {
         }else return this.firstName.compareTo(competitor.getFirstName());
     }
 
-    public boolean isBiggerThan(Competitor competitor){
-        if(this.compareTo(competitor)>0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
 
     public int getNumber() {
         return number;
