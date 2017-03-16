@@ -1,10 +1,11 @@
-import sun.reflect.generics.tree.Tree;
+package binarytree;
+
 
 import java.util.ArrayList;
 
 
 public class BinaryTree<Integer> {
-
+//@todo use generics remove custom methods from treenode
     private TreeNode head = new TreeNode(null);
     private TreeNode nullNode = new TreeNode(null);
     private ArrayList<Integer> ElementList;
@@ -79,14 +80,10 @@ public class BinaryTree<Integer> {
 
 
     public ArrayList<Integer> traversePreorder(TreeNode node, ArrayList<Integer> list) {
-        if (node.hasElement()) {
+        if (node != null) {
             list.add((Integer)node.getElement());
-        }
-        if (node.hasLeft()) {
-            list = traversePreorder(node.getLeft(), list);
-        }
-        if (node.hasRight()) {
-            list = traversePreorder(node.getRight(), list);
+            traversePreorder(node.getLeft(), list);
+            traversePreorder(node.getRight(), list);
         }
         return list;
     }

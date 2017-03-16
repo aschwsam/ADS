@@ -1,5 +1,9 @@
+package marathon;
+
+
 import java.text.*;
 import java.util.*;
+
 
 public final class Competitor implements Comparable<Competitor> {
 
@@ -10,6 +14,13 @@ public final class Competitor implements Comparable<Competitor> {
     private int yearOfBirth;
     private String city;
     private Date time;
+
+•hashCode
+•toString
+
+
+    compareTo(nach Namen)
+
 
     public Competitor(int number, String firstName, String lastName, int yearOfBirth, String city, String timeString) throws NullPointerException, ParseException {
 
@@ -31,13 +42,13 @@ public final class Competitor implements Comparable<Competitor> {
         this.time = TIME_FORMAT.parse(timeString);
     }
 
+
     @Override
     public boolean equals(Object object) {
-
-        /* Fuegen Sie hier Ihren Code ein. */
-
-        return false;
+        Competitor other = (Competitor)object;
+        return other.getFirstName() == firstName && other.getLastName() == lastName;
     }
+
 
     @Override
     public int hashCode() {
@@ -47,6 +58,7 @@ public final class Competitor implements Comparable<Competitor> {
         return 0;
     }
 
+
     @Override
     public String toString() {
 
@@ -54,6 +66,7 @@ public final class Competitor implements Comparable<Competitor> {
 
         return null;
     }
+
 
     @Override
     public int compareTo(Competitor competitor) {
@@ -63,29 +76,36 @@ public final class Competitor implements Comparable<Competitor> {
         return 0;
     }
 
+
     public int getNumber() {
         return number;
     }
+
 
     public String getFirstName() {
         return firstName;
     }
 
+
     public String getLastName() {
         return lastName;
     }
+
 
     public int getYearOfBirth() {
         return yearOfBirth;
     }
 
+
     public String getCity() {
         return city;
     }
 
+
     public Date getTime() {
         return time;
     }
+
 
     public String returnTimeString() {
         return TIME_FORMAT.format(time);

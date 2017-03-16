@@ -1,3 +1,6 @@
+package binarytree;
+
+
 /**
  * Class for modeling a node of a binary search tree.
  */
