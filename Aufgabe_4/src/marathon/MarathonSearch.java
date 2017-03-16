@@ -9,12 +9,13 @@ import java.util.ArrayList;
  * @version 16.3.2017
  */
 public class MarathonSearch {
-    public static void main() {
-        BinarySearchTree searchTree = new BinarySearchTree();
+    public static void main(String args) {
+        BinarySearchTree<Competitor> searchTree = new BinarySearchTree();
         ArrayList<Competitor> athlets;
         athlets = CSVParser.readFile();
-        for(Competitor at : athlets){
+        for (Competitor at : athlets) {
             searchTree.add(at);
         }
+        searchTree.traverseInorder();
     }
 }
