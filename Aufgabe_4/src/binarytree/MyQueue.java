@@ -1,15 +1,13 @@
 package binarytree;
-
-
 import java.util.LinkedList;
 
-
 /**
- * Created by stephan on 15.03.17.
+ * @author Stephan Graf
+ * @version 15.03.17.
  */
 
-public class MyQueue {
-    LinkedList list;
+public class MyQueue<E extends Object> {
+    LinkedList<E> list;
 
 
     public MyQueue() {
@@ -17,15 +15,15 @@ public class MyQueue {
     }
 
 
-    public void add(Object object) {
-        list.addLast(object);
+    public void add(E element) {
+        list.addLast(element);
     }
 
 
-    public Object remove() {
-        Object node = list.getFirst();
+    public E remove() {
+        E element = list.getFirst();
         list.removeFirst();
-        return node;
+        return element;
     }
 
 
