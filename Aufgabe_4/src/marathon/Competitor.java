@@ -15,13 +15,6 @@ public final class Competitor implements Comparable<Competitor> {
     private String city;
     private Date time;
 
-•hashCode
-•toString
-
-
-    compareTo(nach Namen)
-
-
     public Competitor(int number, String firstName, String lastName, int yearOfBirth, String city, String timeString) throws NullPointerException, ParseException {
 
         /* Check and adopt parameters. */
@@ -46,34 +39,33 @@ public final class Competitor implements Comparable<Competitor> {
     @Override
     public boolean equals(Object object) {
         Competitor other = (Competitor)object;
-        return other.getFirstName() == firstName && other.getLastName() == lastName;
+        return other.getFirstName() == this.firstName && other.getLastName() == this.lastName;
     }
-
 
     @Override
     public int hashCode() {
-
-        /* Fuegen Sie hier Ihren Code ein. */
-
-        return 0;
+        return Objects.hash(this.firstName, this.lastName, this.city, this.number, this.time, this.yearOfBirth);
     }
 
 
     @Override
     public String toString() {
-
-        /* Fuegen Sie hier Ihren Code ein. */
-
-        return null;
+        String string = new String();
+        string.concat(String.valueOf(number)+": ");
+        string.concat(firstName);
+        string.concat(lastName);
+        string.concat("("+yearOfBirth+"),");
+        string.concat(city+",");
+        string.concat("-->"+time);
+        return string;
     }
 
 
     @Override
     public int compareTo(Competitor competitor) {
-
-        /* Fuegen Sie hier Ihren Code ein. */
-
-        return 0;
+        if(this.lastName.compareTo(competitor.getLastName())!=0){
+            return this.lastName.compareTo(competitor.getLastName());
+        }else return this.firstName.compareTo(competitor.getFirstName());
     }
 
 
