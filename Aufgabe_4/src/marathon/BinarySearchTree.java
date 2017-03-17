@@ -35,17 +35,22 @@ public class BinarySearchTree<E extends Comparable<E>> extends binarytree.Binary
     }
 
 
-    public E find(E needle, TreeNode haystack){
-        // check if names match
-        if(needle.equals(haystack.getElement())){
-            return needle;
-        } else {
-            // bigger => right, smaller => left
-            if(needle.compareTo((E)haystack.getElement())>0){
-                return find(needle,haystack.getRight());
-            } else {
-                return find(needle,haystack.getLeft());
-            }
-        }
-    }
+	public E find(E needle, TreeNode<E> haystack){
+		// Check if tree is empty
+		if(haystack == null){
+			return null;
+		} else {
+			// Check if needle equals current Element
+			if(needle.equals(haystack.getElement())){
+				return haystack.getElement();
+			} else {
+				// Needle > 0 => go right, Needle < 0 go left
+				if(needle.compareTo(haystack.getElement())>0){
+					return find(needle,haystack.getRight());
+				} else {
+					return find(needle,haystack.getLeft());
+				}				
+			}
+		}
+	}
 }
