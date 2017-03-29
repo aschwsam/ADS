@@ -36,13 +36,7 @@ public class Node {
     }
 
 
-    public boolean equals(String name) {
-        return id.equals(name);
-    }
-
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
+    public int getIndex() {
+        return index;
     }
 }
