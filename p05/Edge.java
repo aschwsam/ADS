@@ -9,8 +9,9 @@ package p05;
 public class Edge {
     private Node destination;
     private int weight;
+    private int index;
 
-    public Edge(Node destination, int weight){
+    public Edge(Node destination, int weight,int index){
         this.destination = destination;
         this.weight = weight;
     }
@@ -20,6 +21,9 @@ public class Edge {
         return destination;
     }
 
+    public int getIndex(){
+        return index;
+    }
 
     public int getWeight() {
         return weight;
