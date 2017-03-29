@@ -16,7 +16,7 @@ public interface DirectedGraph {
     public int getNumberOfEdges();
     public ArrayList<Node> getNodeList();
     public ArrayList<Edge> getEdgeListForNode(Node node);
-    public void addNode();
+    public void addNode(String id);
     public void removeNode(Node node);
     public void addEdge(Node from, Node to);
     public void addEdge(Node from, Node to, int weight);
