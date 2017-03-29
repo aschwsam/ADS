@@ -23,7 +23,7 @@ public abstract class CSVParser {
                     temp[0]=data[0];
                     temp[1]=data[1];
                     if (data.length < 2) {
-                       temp[2]="0";
+                       temp[2]="-1";
                     }else{
                         temp[2]=data[2];
                     }

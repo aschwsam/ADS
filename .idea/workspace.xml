@@ -4,10 +4,9 @@
     <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="add id argument to addNode">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/cities.csv" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p05/AdjacencyGraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p05/NodeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/praktikum3.iml" afterPath="$PROJECT_DIR$/.idea/praktikum3.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p05/cities.csv" afterPath="$PROJECT_DIR$/p05/cities.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p05/CSVParser.java" afterPath="$PROJECT_DIR$/p05/CSVParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p05/NodeTest.java" afterPath="$PROJECT_DIR$/p05/NodeTest.java" />
     </list>
     <list id="a05c7fef-5c92-4d00-b5ec-cbc092182dcd" name="Rejected commit: Default" comment="add Node" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,6 +47,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CSVParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/p05/CSVParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p05/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,7 +92,7 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p05/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="267">
               <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#398#399#0" expanded="true" />
@@ -95,13 +106,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p05/NodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#319#320#0" expanded="true" />
                 <element signature="e#367#368#0" expanded="true" />
               </folding>
@@ -160,13 +170,13 @@
         <option value="$PROJECT_DIR$/p05/MatrixGraph.java" />
         <option value="$PROJECT_DIR$/p05/DirectedGraph.java" />
         <option value="$PROJECT_DIR$/p05/AdjacencyGraph.java" />
-        <option value="$PROJECT_DIR$/p05/CSVParser.java" />
         <option value="$PROJECT_DIR$/p05/Main.java" />
         <option value="$PROJECT_DIR$/out/cities.csv" />
         <option value="$PROJECT_DIR$/p05/Test.java" />
         <option value="$PROJECT_DIR$/p05/Node.java" />
         <option value="$PROJECT_DIR$/p05/cities.csv" />
         <option value="$PROJECT_DIR$/p05/NodeTest.java" />
+        <option value="$PROJECT_DIR$/p05/CSVParser.java" />
       </list>
     </option>
   </component>
@@ -736,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490814757756</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="finish Node">
+      <created>1490815117892</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1490815117892</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -816,7 +833,8 @@
     <MESSAGE value="reader" />
     <MESSAGE value="node revamped" />
     <MESSAGE value="remove equals and shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove equals and shit" />
+    <MESSAGE value="finish Node" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish Node" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1111,16 +1129,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/p05/MapGraph.java" />
     <entry file="file://$PROJECT_DIR$/p05/SwissCityMap.java" />
-    <entry file="file://$PROJECT_DIR$/p05/CSVParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/cities.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1142,17 +1150,6 @@
         <state relative-caret-position="187">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p05/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,6 +1187,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/p05/NodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p05/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p05/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p05/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/p05/DirectedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1208,14 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p05/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p05/cities.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1224,29 +1258,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p05/Node.java">
+    <entry file="file://$PROJECT_DIR$/p05/CSVParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p05/NodeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="425">
+          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
           </folding>
         </state>
       </provider>

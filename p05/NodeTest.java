@@ -25,7 +25,4 @@ public class NodeTest {
         assertNotEquals(myNode,nodes.get("Zuerich"));
         assertEquals(0,nodes.get("Zürich").getIndex());
     }
-
-
-
 }
