@@ -1,4 +1,4 @@
-package marathon;
+package p03.marathon;
 
 
 import java.text.*;

@@ -1,8 +1,8 @@
-package marathon;
+package p03.marathon;
 
-import binarytree.TreeNode;
+import p03.binarytree.TreeNode;
 
-public class BinarySearchTree<E extends Comparable<E>> extends binarytree.BinaryTree {
+public class BinarySearchTree<E extends Comparable<E>> extends p03.binarytree.BinaryTree {
 
     public BinarySearchTree() {
         super();

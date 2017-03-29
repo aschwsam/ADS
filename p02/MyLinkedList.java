@@ -1,4 +1,4 @@
-
+package p02;
 public class MyLinkedList {
 	
 	private Node head = null;

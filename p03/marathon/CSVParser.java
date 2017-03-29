@@ -1,4 +1,4 @@
-package marathon;
+package p03.marathon;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

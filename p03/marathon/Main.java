@@ -1,6 +1,6 @@
-import marathon.BinarySearchTree;
-import marathon.CSVParser;
-import marathon.Competitor;
+package p03.marathon;
+
+
 import java.util.ArrayList;
 
 /**

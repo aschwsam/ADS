@@ -1,4 +1,4 @@
-package binarytree;
+package p03.binarytree;
 
 
 import static org.junit.Assert.*;
@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class TreeNodeTraversierungTest {
-
 	BinaryTree<Integer> emptyTree = new BinaryTree<Integer>();
 	BinaryTree<Integer> onlyRootNodeTree = new BinaryTree<Integer>(42);
 	BinaryTree<Integer> twoNodeTree;
