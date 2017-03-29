@@ -1,36 +1,32 @@
 package p05;
 
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Created by stephan on 29.03.17.
- */
-    public class Graph implements DirectedGraph
+* Created by stephan on 29.03.17.
+*/
+public class Graph implements DirectedGraph
 {
+    private HashMap<String, Node> nodelist = new HashMap<String, Node>();
+    private int[][] matrix;
 
-        private HashMap<String, Node> nodelist = new HashMap<String, Node>();
-        private int[][] matrix;
+    public void main (){
+       read(new File ("cities.csv"));
+    }
 
-        public void main (){
-           read(new File ("cities.csv"));
-        }
+    public void createMatrix () {
 
-        public void createMatrix () {
+        matrix = new int[nodelist.size()][nodelist.size()];
 
-            matrix = new int[nodelist.size()][nodelist.size()];
-
-            for (Node node : nodelist.values()) {
-                for (Edge edge : node.getEdges()) {
-                    System.out.println(edge.getDestination().getIndex());
-                    int weight =edge.getWeight();
-                    matrix[node.getIndex()][edge.getDestination().getIndex()] = edge.getWeight();
-                }
+        for (Node node : nodelist.values()) {
+            for (Edge edge : node.getEdges()) {
+                System.out.println(edge.getDestination().getIndex());
+                matrix[node.getIndex()][edge.getDestination().getIndex()] = edge.getWeight();
             }
         }
+    }
 
 
     @Override
@@ -56,7 +52,8 @@ import java.util.Map;
 
     @Override
     public int getNumberofNodes() {
-        return 0;
+
+        return nodelist.size();
     }
 
     @Override
@@ -75,12 +72,12 @@ import java.util.Map;
 
     @Override
     public ArrayList<Node> getNodeList() {
-        return null;
+           return (ArrayList<Node>)nodelist.values();
     }
 
     @Override
     public ArrayList<Edge> getEdgeListForNode(Node node) {
-        return null;
+        return node.getEdges();
     }
 
     @Override
