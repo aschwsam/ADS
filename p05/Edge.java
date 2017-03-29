@@ -11,7 +11,7 @@ public class Edge {
     private int weight;
     private int index;
 
-    public Edge(Node destination, int weight,int index){
+    public Edge(Node destination, int weight){
         this.destination = destination;
         this.weight = weight;
     }
