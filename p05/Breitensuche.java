@@ -30,11 +30,6 @@ public class Breitensuche {
             }
         }
 
-        if(startnode<nodelist.size()){
-            startnode++;
-            buildQueue(nodelist,startnode);
-        }
-
         return queue;
     }
 }
