@@ -50,6 +50,7 @@ public class Graph implements DirectedGraph
 
     }
 
+
     @Override
     public int getNumberofNodes() {
 
@@ -72,7 +73,12 @@ public class Graph implements DirectedGraph
 
     @Override
     public ArrayList<Node> getNodeList() {
-           return (ArrayList<Node>)nodelist.values();
+        ArrayList<Node> toreturn = new ArrayList<>();
+        for(Node node : nodelist.values()){
+            toreturn.add(node);
+        }
+        return toreturn;
+        //return (ArrayList<Node>)nodelist.values();
     }
 
     @Override

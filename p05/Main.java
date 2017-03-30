@@ -2,6 +2,7 @@ package p05;
 
 
 import java.io.File;
+import java.util.Queue;
 
 
 /**
@@ -21,7 +22,12 @@ public class Main {
 
         */
 
-        Graph asd = new Graph();
-        asd.main();
+        Graph graph = new Graph();
+        graph.main();
+
+        Breitensuche bsearch = new Breitensuche();
+        Queue<Node> bstree = bsearch.buildQueue(graph.getNodeList(), 0);
+        System.out.println("asd");
+
     }
 }
