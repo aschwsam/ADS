@@ -1,35 +1,33 @@
 package p05;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * Created by Sam on 30.03.2017.
- */
 public class Breitensuche {
+
     private Queue<Node> queue = new LinkedList<Node>();
+    private HashSet<String> output = new HashSet<String>();
 
-    public Breitensuche(){
+    public Breitensuche (Graph graph){
+        // Get first node from list
 
-    }
+        queue.offer(graph.getNodeList().get(2));
 
-    public Queue buildQueue(ArrayList<Node> nodelist, int startnode){
+        while(!queue.isEmpty()){
+            // AUSGABE A
+            Node currentnode = queue.remove();
+            output.add(currentnode.toString());
 
-        int counter = 0;
+            System.out.println(currentnode.toString());
 
-        for(Node nodes : nodelist){
-            if(counter<startnode){
-                counter++;
-            } else {
-                queue.offer(nodes);
-                for(Edge edges : nodes.getEdges()){
+            // ADD B AND C TO QUEUE
+            for(Edge edges : currentnode.getEdges()) {
+                if(!output.contains(edges.getDestination().toString())) {
                     queue.offer(edges.getDestination());
                 }
             }
         }
 
-        return queue;
     }
 }

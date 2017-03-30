@@ -25,9 +25,6 @@ public class Main {
         Graph graph = new Graph();
         graph.main();
 
-        Breitensuche bsearch = new Breitensuche();
-        Queue<Node> bstree = bsearch.buildQueue(graph.getNodeList(), 0);
-        System.out.println("asd");
-
+        Breitensuche bsearch = new Breitensuche(graph);
     }
 }
