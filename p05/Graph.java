@@ -53,13 +53,11 @@ public class Graph implements DirectedGraph {
 
     }
 
-
     @Override
     public int getNumberofNodes() {
 
         return matrix.length;
     }
-
 
     @Override
     public int getNumberOfEdges() {
@@ -75,12 +73,15 @@ public class Graph implements DirectedGraph {
         return edges;
     }
 
-
     @Override
     public ArrayList<Node> getNodeList() {
-        return (ArrayList<Node>)nodelist.values();
+        ArrayList<Node> toreturn = new ArrayList<>();
+        for(Node node : nodelist.values()){
+            toreturn.add(node);
+        }
+        return toreturn;
+        //return (ArrayList<Node>)nodelist.values();
     }
-
 
     @Override
     public ArrayList<Edge> getEdgeListForNode(Node node) {
@@ -100,12 +101,10 @@ public class Graph implements DirectedGraph {
         matrix[from.getIndex()][to.getIndex()] = 1;
     }
 
-
     @Override
     public void addEdge(Node from, Node to, int weight) {
         matrix[from.getIndex()][to.getIndex()] = weight;
     }
-
 
     @Override
     public void removeEdge(Node from, Node to) {
