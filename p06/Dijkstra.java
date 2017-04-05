@@ -1,7 +1,6 @@
 package p06;
 import p05.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -15,22 +14,38 @@ public class Dijkstra {
 
         // initialize the mash
         Graph graph = new Graph();
+
     }
 
-    private void getNonVisitedNodes(Node origin){
+    /**
+     * Find the closest edge of a node and return it
+     * ==> Edge contains the target node (.destination) and distance (.weight)
+     * @param origin
+     * @return Edge
+     */
+    private Edge getClosestNode(Node origin){
 
         // Temporary store for neighbours
-        HashMap<Node,Integer> candidate = new HashMap<>();
+        HashMap<Edge,Integer> candidate = new HashMap<>();
+        Edge nexthop = null;
+        Integer shortestpath = null;
 
         for(Edge edge : origin.getEdges()){
             if(!path.containsKey(edge.getDestination()) || !path.containsValue(edge.getDestination())){
 
                 // Temporary store all neighbours
-                candidate.put(edge.getDestination(),edge.getWeight());
+                candidate.put(edge,edge.getWeight());
             }
         }
 
-        // TODO: Select the neighbour with the shortest distance
+        // Find the closest node
+        for(HashMap.Entry<Edge,Integer> singlepath : candidate.entrySet()) {
+            if(singlepath.getValue()<shortestpath || shortestpath==null){
+                nexthop = singlepath.getKey();
+                shortestpath = singlepath.getValue();
+            }
+        }
 
+        return nexthop;
     }
 }
