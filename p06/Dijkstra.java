@@ -1,6 +1,7 @@
 package p06;
 import p05.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -8,13 +9,15 @@ import java.util.HashMap;
  */
 public class Dijkstra {
 
-    private HashMap<Node,Integer> path = new HashMap<>();
+    private static HashMap<Node,Integer> path = new HashMap<>();
 
     public static void main(String Args[]){
 
         // initialize the mash
         Graph graph = new Graph();
 
+        // get all nodes
+        ArrayList<Node> nodes = graph.getNodeList();
     }
 
     /**
@@ -23,7 +26,7 @@ public class Dijkstra {
      * @param origin
      * @return Edge
      */
-    private Edge getClosestNode(Node origin){
+    private static Edge getClosestNode(Node origin){
 
         // Temporary store for neighbours
         HashMap<Edge,Integer> candidate = new HashMap<>();
@@ -40,7 +43,7 @@ public class Dijkstra {
 
         // Find the closest node
         for(HashMap.Entry<Edge,Integer> singlepath : candidate.entrySet()) {
-            if(singlepath.getValue()<shortestpath || shortestpath==null){
+            if(shortestpath==null || singlepath.getValue()<shortestpath){
                 nexthop = singlepath.getKey();
                 shortestpath = singlepath.getValue();
             }
@@ -48,4 +51,5 @@ public class Dijkstra {
 
         return nexthop;
     }
+
 }
