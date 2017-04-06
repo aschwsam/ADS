@@ -4,6 +4,7 @@ import p05.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Our Implementation of the Dijkstra algorithm
@@ -63,6 +64,7 @@ public class Dijkstra {
 
         while(done==false){
             loop();
+            System.out.println();
         }
 
     }
@@ -72,8 +74,8 @@ public class Dijkstra {
         Integer distance = null;
         Node winner = null;
 
-        System.out.println("looking for connections at node: "+input.toString());
-        System.out.println("==========================================");
+       // System.out.println("looking for connections at node: "+input.toString());
+
 
         for (Edge edges : input.getEdges()) {
             if(allNodes.contains(edges.getDestination())){
@@ -92,12 +94,25 @@ public class Dijkstra {
             }
         }
 
+        if(winner!=null){
+           // System.out.println("Best connection from "+input.toString()+" goes to "+winner.toString());
+            //System.out.println("==========================================");
+        } else {
+           // System.out.println("No winner found");
+            //System.out.println("===================");
+        }
+
         return connection;
     }
 
     private static void loop(){
 
         Integer[] quickpath = new Integer[peArray.size()];
+
+       // System.out.println("We're going to check the following nodes");
+        for(PathElement node : peArray){
+           // System.out.println(node.getLastStep().toString());
+        }
 
         int counter = 0;
         for(PathElement pe : peArray){
@@ -110,6 +125,7 @@ public class Dijkstra {
                     quickpath[counter]=value+pe.getPathcost();
                 }
             } else {
+               // System.out.println("no values to work with");
                 quickpath[counter]=0;
             }
 
@@ -122,7 +138,11 @@ public class Dijkstra {
         boolean first = true;
         for(Integer fastroute : quickpath){
             if(first){
-                fast = fastroute;
+                if(fastroute==0){
+                    fast = 99999;
+                } else {
+                    fast = fastroute;
+                }
                 first = false;
             } else {
                 if(fastroute<fast && fastroute!=0){
@@ -131,6 +151,11 @@ public class Dijkstra {
                 }
             }
             k++;
+        }
+
+        //System.out.println("XXX");
+        for(Map.Entry<Node,Integer> asd : getClosestNode(peArray.get(winner).getLastStep()).entrySet()){
+            //System.out.println("the fastest path goes from "+peArray.get(winner).getLastStep().toString()+" to "+asd.getKey().toString());
         }
 
         // Check if "winner" has multiple edges
