@@ -1,7 +1,6 @@
 package p06;
 import p05.*;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,6 +30,7 @@ public class Dijkstra {
             }
         }
 
+        System.out.println("Die Summe aller Strecken beträgt: "+PathLengthSum.getPathSum()+"km");
 
         if (origin == null) {
             System.out.println("Start nicht gefunden");
@@ -64,15 +64,13 @@ public class Dijkstra {
         while(done==false){
             loop();
         }
+
     }
 
     private static HashMap<Node, Integer> getClosestNode(Node input) {
         HashMap<Node, Integer> connection = new HashMap<>();
         Integer distance = null;
         Node winner = null;
-
-        System.out.println("looking for connections at node: "+input.toString());
-        System.out.println("==========================================");
 
         for (Edge edges : input.getEdges()) {
             if(allNodes.contains(edges.getDestination())){
@@ -90,7 +88,6 @@ public class Dijkstra {
                 }
             }
         }
-
         return connection;
     }
 
@@ -121,7 +118,11 @@ public class Dijkstra {
         boolean first = true;
         for(Integer fastroute : quickpath){
             if(first){
-                fast = fastroute;
+                if(fastroute==0){
+                    fast = 99999;
+                } else {
+                    fast = fastroute;
+                }
                 first = false;
             } else {
                 if(fastroute<fast && fastroute!=0){
@@ -156,7 +157,7 @@ public class Dijkstra {
             }
 
             // Remove the new connected node
-            removeNodeFromList(peArray.get(peArray.size()-1).getLastStep());
+            removeNodeFromList(tmpPE.getLastStep());
         } else {
             // Extend the element
             peArray.get(winner).addStep(getClosestNode(peArray.get(winner).getLastStep()));
