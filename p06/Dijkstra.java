@@ -64,6 +64,7 @@ public class Dijkstra {
         while(done==false){
             loop();
         }
+
     }
 
     private static HashMap<Node, Integer> getClosestNode(Node input) {
@@ -156,7 +157,7 @@ public class Dijkstra {
             }
 
             // Remove the new connected node
-            removeNodeFromList(peArray.get(peArray.size()-1).getLastStep());
+            removeNodeFromList(tmpPE.getLastStep());
         } else {
             // Extend the element
             peArray.get(winner).addStep(getClosestNode(peArray.get(winner).getLastStep()));
