@@ -18,6 +18,9 @@ public class Graph implements DirectedGraph {
         read(new File("cities.csv"));
     }
 
+    public Graph(){
+        main();
+    }
 
     public void createMatrix() {
 

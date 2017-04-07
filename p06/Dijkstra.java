@@ -6,6 +6,9 @@ import java.util.HashMap;
 
 /**
  * Our Implementation of the Dijkstra algorithm
+ * main takes two strings as arguments: The first is the source
+ * and second the destination.
+ * The graph is built using the cities.csv file.
  */
 public class Dijkstra {
 
