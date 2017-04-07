@@ -1,15 +1,16 @@
 package p06;
 import p05.*;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Sam on 05.04.2017.
+ * This class holds the individual path information
+ * for the Dijkstra algorithm
  */
 public class PathElement {
+
     private ArrayList<Node> node = new ArrayList<>();
     private Integer pathcost = 0;
 
