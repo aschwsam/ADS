@@ -38,6 +38,11 @@ public class Hashtable<T> implements Iterable<T> {
         }
     }
 
+    private T get(int bucket){
+        if (table[bucket]==PLACEHOLDER){ return null;}
+        else{return (T)table[bucket];}
+    }
+
 
     public Boolean isFree(int bucket) {
         return table[bucket] == PLACEHOLDER;
