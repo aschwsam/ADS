@@ -1,12 +1,14 @@
 package p06;
 import p05.*;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Our Implementation of the Dijkstra algorithm
+ * main takes two strings as arguments: The first is the source
+ * and second the destination.
+ * The graph is built using the cities.csv file.
  */
 public class Dijkstra {
 
@@ -19,6 +21,7 @@ public class Dijkstra {
 
         Node origin = null;
 
+        // Search for the user-selected start and destination
         if(Args.length>0){
             for (Node loop : allNodes) {
                 if (loop.toString().equals(Args[0])) {
@@ -31,6 +34,7 @@ public class Dijkstra {
             }
         }
 
+        System.out.println("Die Summe aller Strecken beträgt: "+PathLengthSum.getPathSum()+"km");
 
         if (origin == null) {
             System.out.println("Start nicht gefunden");
@@ -45,36 +49,42 @@ public class Dijkstra {
         // Add starting node to Path
         peArray.add(new PathElement(origin));
 
-        // If starting node has multiple connections - create copies of it
+        // If starting node has multiple connections - create a copy of the start node
         if(origin.getEdges().size()>1){
             peArray.add(new PathElement(origin));
             // Append the first connection
             peArray.get(1).addStep(getClosestNode(origin));
 
-            // Remove the new discovered node from list
+            // Remove the new discovered node from allNodes
             removeNodeFromList(peArray.get(1).getLastStep());
         } else {
             // Append the first connection
             peArray.get(0).addStep(getClosestNode(origin));
 
-            // Remove the new discovered node from list
+            // Remove the new discovered node from allNodes
             removeNodeFromList(peArray.get(0).getLastStep());
         }
 
-        while(done==false){
-            loop();
+        // Loop until we found a path to destination
+        while(!done){
+            iterateOverGraph();
         }
+
     }
 
+    /**
+     * Check all edges of a node and return a HashMap containing
+     * the shortest edge/weight
+     * @param input (Node)
+     * @return Edge and distance to closest node
+     */
     private static HashMap<Node, Integer> getClosestNode(Node input) {
         HashMap<Node, Integer> connection = new HashMap<>();
         Integer distance = null;
         Node winner = null;
 
-        System.out.println("looking for connections at node: "+input.toString());
-        System.out.println("==========================================");
-
         for (Edge edges : input.getEdges()) {
+            // Check if we used the new edge already (only unused nodes remain in allNodes)
             if(allNodes.contains(edges.getDestination())){
                 if (distance == null) {
                     connection.put(edges.getDestination(), edges.getWeight());
@@ -90,18 +100,22 @@ public class Dijkstra {
                 }
             }
         }
-
         return connection;
     }
 
-    private static void loop(){
+    /**
+     * The "main" loop iterating over peArray (which holds all PathElements)
+     *
+     */
+    private static void iterateOverGraph(){
 
         Integer[] quickpath = new Integer[peArray.size()];
 
+        // Get the closest remote-node for every node we discovered
         int counter = 0;
         for(PathElement pe : peArray){
 
-            // Check for paths
+            // Check for nexthop
             HashMap<Node,Integer> tmpMap = getClosestNode(pe.getLastStep());
 
             if(tmpMap.size()>0){
@@ -115,13 +129,19 @@ public class Dijkstra {
             counter++;
         }
 
+        // Determine the overall closest node
+        // "winner" is the node with the shortest path to a nexthop
         Integer winner = 0;
         Integer fast = 0;
         Integer k = 0;
         boolean first = true;
         for(Integer fastroute : quickpath){
             if(first){
-                fast = fastroute;
+                if(fastroute==0){
+                    fast = 99999;
+                } else {
+                    fast = fastroute;
+                }
                 first = false;
             } else {
                 if(fastroute<fast && fastroute!=0){
@@ -132,20 +152,24 @@ public class Dijkstra {
             k++;
         }
 
+        /*
+            If we hit a node with multiple edges, we need to follow
+            the edges individually.
+            Since we cannot reverse a path, we keep a copy before we append
+            and start over from the last "split" if needed.
+         */
+
         // Check if "winner" has multiple edges
         if(peArray.get(winner).getLastStep().getEdges().size()>1){
 
+            // Create a copy of the used node
             PathElement tmpPE = new PathElement();
-
             for(Node asd : peArray.get(winner).getPath()){
                 tmpPE.setPath(asd);
             }
-
             tmpPE.setPathcost(peArray.get(winner).getPathcost());
-
             Node nextstep = peArray.get(winner).getLastStep();
             tmpPE.addStep(getClosestNode(nextstep));
-
             peArray.add(tmpPE);
 
             if(tmpPE.getLastStep()==destination){
@@ -155,10 +179,9 @@ public class Dijkstra {
                 }
             }
 
-            // Remove the new connected node
-            removeNodeFromList(peArray.get(peArray.size()-1).getLastStep());
+            removeNodeFromList(tmpPE.getLastStep());
         } else {
-            // Extend the element
+            // Extend the path
             peArray.get(winner).addStep(getClosestNode(peArray.get(winner).getLastStep()));
 
             if(peArray.get(winner).getLastStep() == destination){
@@ -168,13 +191,15 @@ public class Dijkstra {
                 }
             }
 
-            // Remove the new connected node
             removeNodeFromList(peArray.get(winner).getLastStep());
         }
 
 
     }
 
+    /**
+     * Remove a discovered node from the graph
+     */
     private static void removeNodeFromList(Node removeit){
         allNodes.remove(removeit);
     }
