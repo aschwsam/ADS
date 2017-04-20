@@ -45,11 +45,11 @@ public class Hashtable<T> implements Iterable<T> {
 
 
     public Boolean isFree(int bucket) {
-        return table[bucket] == PLACEHOLDER;
+        return table[bucket] == PLACEHOLDER || table[bucket]==null;
     }
 
 
-    public Boolean wasAlwaysFree(int bucket) {
+    public Boolean isFresh(int bucket) {
         return table[bucket] == null;
     }
 
@@ -105,15 +105,13 @@ public class Hashtable<T> implements Iterable<T> {
         int i = 0;
         int bucket = hash(needle, i);
 
-        while (table[bucket] != null) {
-
-            if (lineareprobe) {
-                bucket = hash(needle, i);
-                i++;
+        // is not null, is not placeholder cannot be needle (break)
+        while (!isFresh(bucket)) {
+            if(table[bucket] == needle){
+                return true;
             } else {
-                // TODO: Quadratic probing
+                bucket=nextBucket(bucket);
             }
-            return table[bucket] == needle;
         }
         return false;
     }
@@ -130,12 +128,10 @@ public class Hashtable<T> implements Iterable<T> {
 
             private int iterator_position = -1;
 
-
             @Override
             public boolean hasNext() {
                 return (iterator_position + 1 < tablesize);
             }
-
 
             @Override
             public T next()
@@ -146,7 +142,6 @@ public class Hashtable<T> implements Iterable<T> {
                     return null;
                 }
             }
-
 
             @Override
             public void remove() {
