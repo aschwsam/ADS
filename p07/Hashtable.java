@@ -1,6 +1,5 @@
 package p07;
 
-
 import java.util.Iterator;
 
 
@@ -30,7 +29,7 @@ public class Hashtable<T> implements Iterable<T> {
     public void add(T value) {
 
         if (!contains(value)) {
-            int bucket = hash(value, 0);
+            int bucket = hash(value);
             while (!isFree(bucket)) {
                 bucket = nextBucket(bucket);
             }
@@ -62,8 +61,8 @@ public class Hashtable<T> implements Iterable<T> {
     }
 
 
-    public int hash(T value, int seed) {
-        return ((System.identityHashCode(value) + seed) % PRIME) % size();
+    public int hash(T value) {
+        return ((System.identityHashCode(value)) % PRIME) % size();
     }
 
 
@@ -103,7 +102,7 @@ public class Hashtable<T> implements Iterable<T> {
     public boolean contains(T needle) {
 
         int i = 0;
-        int bucket = hash(needle, i);
+        int bucket = hash(needle);
 
         // is not null, is not placeholder cannot be needle (break)
         while (!isFresh(bucket)) {
@@ -142,8 +141,6 @@ public class Hashtable<T> implements Iterable<T> {
                     return null;
                 }
             }
-
-            @Override
             public void remove() {
                 table[iterator_position] = PLACEHOLDER;
             }
