@@ -9,6 +9,8 @@ public class Hashtable<T> implements Iterable<T> {
     private int tablesize;
     private boolean lineareprobe;
     private Object[] table;
+    private int itemcount = 0;
+    private static int loadfactor = 70;
 
     private static final int PRIME = 839;
 
@@ -28,6 +30,27 @@ public class Hashtable<T> implements Iterable<T> {
 
     public void add(T value) {
 
+        itemcount++;
+
+        // Check if more buckets are needed
+        if(Math.floor((itemcount*100)/size())>loadfactor){
+            Object[] newtable = (T[])new Object[tablesize+1000];
+
+            Iterator<T> it = this.iterator();
+            while(it.hasNext()){
+                T tmpvalue = it.next();
+                int bucket = hash(tmpvalue);
+                while(!isFree(bucket)){
+                    bucket = nextBucket(bucket);
+                }
+                newtable[bucket] = tmpvalue;
+            }
+
+            tablesize+=1000;
+            itemcount=1;    // Accounting for the new element
+            table = newtable;
+        }
+
         if (!contains(value)) {
             int bucket = hash(value);
             while (!isFree(bucket)) {
@@ -35,6 +58,19 @@ public class Hashtable<T> implements Iterable<T> {
             }
             table[bucket] = value;
         }
+
+    }
+
+    /**
+     * Set the limit of used buckets in % before adding more buckets
+     * @param loadlimit
+     */
+    public void setLoadFactorForResize(int loadlimit){
+        loadfactor = loadlimit;
+    }
+
+    public int getLoadfactorForResize(){
+        return loadfactor;
     }
 
     private T get(int bucket){
