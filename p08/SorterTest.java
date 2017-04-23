@@ -1,7 +1,6 @@
 package p08;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class SorterTest {
@@ -10,6 +9,7 @@ public class SorterTest {
 	public void shouldNotDoAnythingForNull() {
 		int[] parameter = null;
 		Sorter.sort(parameter);
+		Insertionsort.sort(parameter);
 		assertNull(parameter);
 	}
 	
@@ -19,6 +19,7 @@ public class SorterTest {
 		int[] parameter = {1};
 		int[] expected = {1};
 		Sorter.sort(parameter);
+		Insertionsort.sort(parameter);
 		assertArrayEquals(expected, parameter);
 	}
 	
@@ -27,6 +28,7 @@ public class SorterTest {
 		int[] parameter = {-10, -3, 0, 0, 1, 1, 111, 39393939};
 		int[] expected = {-10, -3, 0, 0, 1, 1, 111, 39393939};
 		Sorter.sort(parameter);
+		Insertionsort.sort(parameter);
 		assertArrayEquals(expected, parameter);
 	}
 	
@@ -35,6 +37,7 @@ public class SorterTest {
 		int[] parameter = {4, -10, 2, 5, -10, 3, 202, -111, 0, 1};
 		int[] expected = {-111, -10, -10, 0, 1, 2, 3, 4, 5, 202};
 		Sorter.sort(parameter);
+		Insertionsort.sort(parameter);
 		assertArrayEquals(expected, parameter);
 	}
 	
