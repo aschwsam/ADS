@@ -1,5 +1,10 @@
 package p08;
 
+/**
+ * TODO: THIS IMPLEMENTATION IS BS!
+ * TODO: DON'T USE IT^^
+ */
+
 public class Quicksort {
 
     public static void main(String Args[]){
