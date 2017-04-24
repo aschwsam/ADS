@@ -4,24 +4,25 @@ public class Insertionsort {
 
     public static void sort(int[] numbers){
 
-        if(numbers != null && numbers.length>1){
+        if(numbers.length==1 || numbers.length<1){
+            return;
+        }
 
-            for(int start=1;start<numbers.length;start++){
+        for(int start=1;start<numbers.length;start++){
 
-                int preview = start;
+            int preview = start;
 
-                while(preview>0) {
-                    if (numbers[preview-1] > numbers[preview]) {
+            while(preview>0) {
+                if (numbers[preview-1] > numbers[preview]) {
 
-                        int tmp = numbers[preview-1];
+                    int tmp = numbers[preview-1];
 
-                        numbers[preview-1] = numbers[preview];
-                        numbers[preview] = tmp;
+                    numbers[preview-1] = numbers[preview];
+                    numbers[preview] = tmp;
 
-                        preview--;
-                    } else {
-                        preview--;
-                    }
+                    preview--;
+                } else {
+                    preview--;
                 }
             }
         }

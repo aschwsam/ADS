@@ -8,62 +8,46 @@ package p08;
 public class Quicksort {
 
     public static void main(String Args[]){
-        int[] numbers = {1,4,2,7,5,8,2,3,9};
-
-
-        System.out.println("===== INIT =====>");
-        for(int asd : numbers){
-            System.out.println("\t"+asd);
-        }
-        System.out.println("==========>");
-
-        sort(numbers);
+        int[] numbers = {1,2,3,4,5,6,7,8,9};
+        //sort(numbers);
     }
 
     public static void sort(int[] numbers){
 
-        int init_pivot = (int)Math.floor(numbers.length/2);
-        int new_pivot = init_pivot;
-        boolean change = false;
-
-        // left (lower) part
-        for(int index=0;index<init_pivot;index++){
-            if(numbers[index]>numbers[init_pivot]){
-                int tmp = numbers[index];
-                numbers[index] = numbers[init_pivot];
-                numbers[init_pivot] = tmp;
-
-                new_pivot = index;
-                change = true;
-            }
+        if(numbers.length==1 || numbers.length<1){
+            return;
         }
 
-        System.out.println("==========>");
-        for(int asd : numbers){
-            System.out.println("\t"+asd);
-        }
-        System.out.println("====="+new_pivot+"=====>");
+        // Define pivot
+         int pivot_position = (int)Math.floor(numbers.length/2);
+         int pivot_value = numbers[pivot_position];
 
-        // right (higher) part
-        for(int index=init_pivot;index<numbers.length;index++){
-            if(numbers[index]<numbers[new_pivot]){
-                int tmp = numbers[index];
-                numbers[index] = numbers[new_pivot];
-                numbers[new_pivot] = tmp;
+        int low_index = 0;
+        int high_index = numbers.length-1;
 
-                new_pivot = index;
-                change = true;
-            }
-        }
+         boolean move_element = true;
 
-        System.out.println("==========>");
-        for(int asd : numbers){
-            System.out.println("\t"+asd);
-        }
-        System.out.println("==========>");
+         while(move_element){
 
-        if(change){
-            sort(numbers);
-        }
+             // Find bigger number OR pivot
+             while(low_index<high_index && numbers[low_index]<pivot_value){
+                 low_index++;
+             }
+
+             while(high_index>low_index && numbers[high_index]>pivot_value){
+                 high_index--;
+             }
+
+             // DEBUG
+             System.out.println("Swap low: "+low_index+" ("+numbers[low_index]+") with high: "+high_index+" ("+numbers[high_index]+")");
+
+             int tmp = numbers[low_index];
+             numbers[low_index] = numbers[high_index];
+             numbers[high_index] = tmp;
+
+             if(numbers[low_index] == numbers[high_index]){
+                 move_element=false;
+             }
+         }
     }
 }

@@ -10,6 +10,7 @@ public class SorterTest {
 		int[] parameter = null;
 		Sorter.sort(parameter);
 		Insertionsort.sort(parameter);
+		Quicksort.sort(parameter);
 		assertNull(parameter);
 	}
 	
@@ -20,6 +21,7 @@ public class SorterTest {
 		int[] expected = {1};
 		Sorter.sort(parameter);
 		Insertionsort.sort(parameter);
+		Quicksort.sort(parameter);
 		assertArrayEquals(expected, parameter);
 	}
 	
@@ -29,6 +31,7 @@ public class SorterTest {
 		int[] expected = {-10, -3, 0, 0, 1, 1, 111, 39393939};
 		Sorter.sort(parameter);
 		Insertionsort.sort(parameter);
+		Quicksort.sort(parameter);
 		assertArrayEquals(expected, parameter);
 	}
 	
