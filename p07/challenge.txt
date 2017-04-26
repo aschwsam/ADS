@@ -1,6 +1,76 @@
-|Inserate|Entlassungen    |
-|--------|----------------|
-|   0    |    64          |
-|   1    |     1          |
-|   x    | x nach x Tagen |
-|--------|----------------|
+# p07
+Annick van Westendorp, Samuel Aschwanden, Stephan Graf
+
+## Fingerübung
+12 -> 7
+44 -> 5
+13 -> 9
+88 -> (5),6
+23 -> (7),8
+94 -> (6,7,8,9),10
+11 -> (5,6,7,8,9),0
+39 -> (6,7,8,9,10,0),1
+20 -> (1),2
+16 -> 4
+ 5 -> (4,5,6,7,8,9,0,1,2),3
+Man sieht dass mit zunehmendem Füllstand die lineare Sondierung immer ineffizienter wird
+
+## Hashtabelle
+[ ] Beim erzeugen der Hashtabelle *kann* man die initiale Grösse angeben
+[x] Kann auch ohne grösse aufgerufen werden --> 2. Konstruktor
+[ ] size
+[ ] isEmpty
+[ ] addd
+[ ] contains
+[ ] remove
+[ ] setLoadFactorForResize
+[ ] iterator--> tests
+[ ] linear sondieren
+[ ] quadratisch sondieren
+[ ] refactor code
+[ ] showcase aufgabe 1
+
+# Island of paranoid employers
+Folgendes passiert nach Empfang des Mails wenn man davon ausgeht dass alle Firmen das Mail für bare Münze nehmen:
+
+|Inserate|Entlassungen      |
+|--------|------------------|
+|   0    |    64            |
+|   1    |     1            |
+|   3    | 3 Pers am 3. Tag |
+|   x    | x nach x Tagen   |
+|--------|------------------|
+
+## Erläuterung
+Ich zeige die Ereignisse nach Tag Zero aufgeteilt in Szenarien gemäss Inserateanzahl in Börse.
+
+Legende:
+| a,b,c = Mitarbeiter                     |
+| A,B,C = Firmen (a ist bei A angestellt) |
+| sieht | weiss |
+
+### Szenario 1:
+Das Mail ist ein Fake. Niemand hat sich irgendwo beworben. Die Firmen "wissen" aber dass sich jemand Beworben hat.
+Da keine Firma ihren eigenen Mitarbeiter sehen kann und alle Firmen kein Inserat sehen entlasse alle Firmen "ihren" Mitarbeiter.
+|Tag   | Inserat von | A       | B       | C       |
+|Tag  0|             | s=0 w=1 | s=0 w=1 | s=0 w=1 |
+|Tag  1|             | entl. a | entl. b | entl. c |
+|------|-------------|---------|---------|---------|
+
+### Was aber wenn jemand tatsächlich ein "Verräter" ist?
+A sieht nichts aber weiss das es mindestens jemanden geben muss --> a
+B sieht a aber weiss nicht ob nicht b auch noch darunter ist
+C analog zu B
+Am nächsten Tag wird a entlassen.
+B & C wissen somit dass nur ein Inserat da war weil sonst a nicht von A entlassen worden wäre.
+|Tag   | Inserat von | A       | B         | C         |
+|Tag  0| a           | 0 | 1   | 1  | 1-2  | 1 | 1-2   |
+|Tag  1|             | entl. a | 0  | 0    | 0 | 0     |
+|------|-------------|---------|-----------|-----------|
+
+### Wie sieht es au mit mehreren Inseraten?:
+|Tag   |Inserat von | Mitarbeiter|
+|Tag  0| a b        | A B C      | A sieht b, B sieht a, C sieht a & b
+|Tag  1| a b        | A B C      | niemand wird entlassen weil A=1-2, B=1-2, C=2-3
+|Tag  2| - -        | A B C      | niemand wurde entlassen, Gem. Tab II) müssen zwei Bewerbugen vorhanden sein, A&B sehen aber nur eine und entlassen somit beide ihre Programmierer.
+|------|------------|------------|

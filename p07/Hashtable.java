@@ -1,56 +1,54 @@
 package p07;
 
+
+import java.util.Arrays;
 import java.util.Iterator;
 
 
 public class Hashtable<T> implements Iterable<T> {
 
-    Placeholder PLACEHOLDER=new Placeholder();
+    Placeholder PLACEHOLDER = new Placeholder();
+    private static final int DEFAULT_INITIAL_SIZE = 10;
     private int tablesize;
     private boolean lineareprobe;
     private Object[] table;
     private int itemcount = 0;
     private static int loadfactor = 70;
-
     private static final int PRIME = 839;
 
 
     /**
-     * TODO: Complete constructor description
+     * Create a new Hashtable
      *
-     * @param size  (initial table-size)
-     * @param probe (true = linear, false = quadratic)
+     * @param size        (initial table-size)
+     * @param linearprobe (true = linear, false = quadratic)
      */
-    public Hashtable(Integer size, boolean probe) {
+    public Hashtable(Integer size, boolean linearprobe) {
         tablesize = size;
-        lineareprobe = probe;
+        lineareprobe = linearprobe;
         table = (T[])new Object[size];
+        for (int i = 0; i < size; i++) {
+            table[i] = null;
+        }
+    }
+
+
+    /**
+     * Create new Hashtable with default Size
+     *
+     * @param linearprobe (true = linear, false = quadratic)
+     */
+    public Hashtable(boolean linearprobe) {
+        this(DEFAULT_INITIAL_SIZE, linearprobe);
     }
 
 
     public void add(T value) {
-
         itemcount++;
-
         // Check if more buckets are needed
-        if(Math.floor((itemcount*100)/size())>loadfactor){
-            Object[] newtable = (T[])new Object[tablesize+1000];
-
-            Iterator<T> it = this.iterator();
-            while(it.hasNext()){
-                T tmpvalue = it.next();
-                int bucket = hash(tmpvalue);
-                while(!isFree(bucket)){
-                    bucket = nextBucket(bucket);
-                }
-                newtable[bucket] = tmpvalue;
-            }
-
-            tablesize+=1000;
-            itemcount=1;    // Accounting for the new element
-            table = newtable;
+        if (Math.floor(((itemcount) * 100) / size()) > loadfactor) {
+            resize();
         }
-
         if (!contains(value)) {
             int bucket = hash(value);
             while (!isFree(bucket)) {
@@ -58,29 +56,43 @@ public class Hashtable<T> implements Iterable<T> {
             }
             table[bucket] = value;
         }
-
     }
+
+
+    private void resize() {
+        Object[] newtable = (T[])Arrays.copyOf(table, tablesize + 1000);
+        tablesize += 1000;
+        itemcount = 1;    // Accounting for the new element
+        table = newtable;
+    }
+
 
     /**
      * Set the limit of used buckets in % before adding more buckets
+     *
      * @param loadlimit
      */
-    public void setLoadFactorForResize(int loadlimit){
+    public void setLoadFactorForResize(int loadlimit) {
         loadfactor = loadlimit;
     }
 
-    public int getLoadfactorForResize(){
+
+    public int getLoadfactorForResize() {
         return loadfactor;
     }
 
-    private T get(int bucket){
-        if (table[bucket]==PLACEHOLDER){ return null;}
-        else{return (T)table[bucket];}
+
+    private T get(int bucket) {
+        if (table[bucket] == PLACEHOLDER) {
+            return null;
+        } else {
+            return (T)table[bucket];
+        }
     }
 
 
     public Boolean isFree(int bucket) {
-        return table[bucket] == PLACEHOLDER || table[bucket]==null;
+        return table[bucket] == PLACEHOLDER || table[bucket] == null;
     }
 
 
@@ -91,9 +103,10 @@ public class Hashtable<T> implements Iterable<T> {
 
     public int nextBucket(int current) {
         if (lineareprobe) {
-            return current+1%tablesize;
+            return current + 1 % tablesize;
         } else {
-            return (current + 1) ^ 2;}
+            return (current + 1) ^ 2;
+        }
     }
 
 
@@ -139,16 +152,21 @@ public class Hashtable<T> implements Iterable<T> {
 
         int i = 0;
         int bucket = hash(needle);
-
+        System.out.println("");
         // is not null, is not placeholder cannot be needle (break)
         while (!isFresh(bucket)) {
-            if(table[bucket] == needle){
+            if (table[bucket] == needle) {
                 return true;
             } else {
-                bucket=nextBucket(bucket);
+                bucket = nextBucket(bucket);
             }
         }
         return false;
+    }
+
+
+    public void remove(T value) {
+        table[hash(value)] = PLACEHOLDER;
     }
 
 
@@ -160,25 +178,27 @@ public class Hashtable<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         Iterator<T> it = new Iterator<T>() {
+            private int position = -1;
 
-            private int iterator_position = -1;
 
             @Override
             public boolean hasNext() {
-                return (iterator_position + 1 < tablesize);
+                return (position + 1 < size());
             }
 
+
             @Override
-            public T next()
-            {
-                if(!table[++iterator_position].equals(PLACEHOLDER)){
-                    return (T)table[++iterator_position];
-                }else{
-                    return null;
+            public T next() {
+                position++;
+                while (!isFree(position)) {
+                    position++;
                 }
+                return (T)table[position];
             }
+
+
             public void remove() {
-                table[iterator_position] = PLACEHOLDER;
+                table[position] = PLACEHOLDER;
             }
         };
 
