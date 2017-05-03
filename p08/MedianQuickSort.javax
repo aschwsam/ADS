@@ -1,0 +1,33 @@
+package p08;
+
+
+import java.util.Arrays;
+
+
+/**
+ * @author Stephan Graf
+ * @since 01.05.17
+ */
+public class MedianQuickSort extends QuickSort3 {
+
+    @Override
+    private int getPivotIndex(int[] array,int low, int high) {
+        System.out.println("median");
+        return getMedianPivotIndex(array,low,high);
+}
+
+
+    private int getMedianPivotIndex(int[] array, int low, int high){
+        return median(new int[]{array[low],array[high],getPivotIndex(array,low,high)});
+    }
+
+    private int median(int[] array){
+        Arrays.sort(array);
+        int middle = array.length/2;
+        if (array.length%2 == 1) {
+            return array[middle];
+        } else {
+            return (array[middle-1] + array[middle]) / 2;
+        }
+    }
+}

@@ -1,11 +1,15 @@
 package p08;
 
 
+import java.util.Arrays;
+
+
 /**
  * @author Stephan Graf
  * @since 01.05.17
  */
-public class QuickSort3 extends SortingAlgorithm {
+public class QuickSortTurbo extends SortingAlgorithm {
+    final static int TRESHOLD=10;
 
 
     @Override
@@ -13,6 +17,7 @@ public class QuickSort3 extends SortingAlgorithm {
       quickSort(array,0,array.length-1);
     }
     public void quickSort(int[] array, int low, int high){
+        InsertionSort insertionSort=new InsertionSort();
         //System.out.println("quicksort");
         int pivotPoint = getPivotIndex(array, low, high);
         int i = low;
@@ -34,11 +39,20 @@ public class QuickSort3 extends SortingAlgorithm {
                 pivotPoint = i;
             }
         }
+    if(pivotPoint-low >TRESHOLD || high -pivotPoint>TRESHOLD){
         if (pivotPoint - low > 1) {
             quickSort(array, low, pivotPoint - 1);
         }
         if (high - pivotPoint > 1) {
             quickSort(array, pivotPoint + 1, high);
+        }
+        }else{
+            if (pivotPoint - low > 1) {
+                insertionSort.sort(Arrays.copyOfRange(array,low, pivotPoint - 1));
+            }
+            if (high - pivotPoint > 1) {
+                insertionSort.sort(Arrays.copyOfRange(array,pivotPoint+1, high));
+            }
         }
     }
 
