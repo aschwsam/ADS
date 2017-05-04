@@ -3,21 +3,23 @@ package p08;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 
 /**
  * @author Stephan Graf
  * @since 02.05.17
  */
-public class MedianQuickSort extends QuickSort3 {
+public class BetterMedianQuickSort extends QuickSort3 {
 
     @Override
     protected int getPivotIndex(int[] array, int low, int high) {
-        int middle = super.getPivotIndex(array, low, high);
+        //todo add distinc
+        int[] ints = new Random().ints(low, high-low).limit(6).toArray();
         HashMap<Integer, Integer> medianPointers = new HashMap<>();
-        medianPointers.put(array[low], low);
-        medianPointers.put(array[high], high);
-        medianPointers.put(array[middle], middle);
+        for (int i : ints) {
+            medianPointers.put(array[i], i);
+        }
         int[] a = new int[medianPointers.size()];
         int j = 0;
         for (Integer i : medianPointers.keySet()) {

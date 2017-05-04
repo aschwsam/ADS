@@ -5,7 +5,7 @@ package p08;
  * @since 2017-04-26
  */
 public enum ArraySizeCategory {
-    SMALL(10), MEDIUM(10000), LARGE(1000000);
+    SMALL(10), MEDIUM(10000);//,LARGE(100000);
     public final int value;
     ArraySizeCategory(int value) {
         this.value = value;

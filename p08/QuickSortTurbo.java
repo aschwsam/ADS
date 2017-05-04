@@ -1,24 +1,24 @@
 package p08;
 
 
-import java.util.Arrays;
-
-
 /**
  * @author Stephan Graf
  * @since 01.05.17
  */
 public class QuickSortTurbo extends SortingAlgorithm {
-    final static int TRESHOLD=10;
-
+    final static int TRESHOLD = 12;
 
     @Override
     public void sort(int[] array) {
-      quickSort(array,0,array.length-1);
+        quickSort(array, 0, array.length - 1);
     }
-    public void quickSort(int[] array, int low, int high){
-        InsertionSort insertionSort=new InsertionSort();
-        //System.out.println("quicksort");
+    public void sort(int[] array,int low, int high){
+        quickSort(array,low,high);
+    }
+
+
+    private void quickSort(int[] array, int low, int high) {
+        InsertionSort insertionSort = new InsertionSort();
         int pivotPoint = getPivotIndex(array, low, high);
         int i = low;
         int j = high;
@@ -39,23 +39,22 @@ public class QuickSortTurbo extends SortingAlgorithm {
                 pivotPoint = i;
             }
         }
-    if(pivotPoint-low >TRESHOLD || high -pivotPoint>TRESHOLD){
         if (pivotPoint - low > 1) {
-            quickSort(array, low, pivotPoint - 1);
-        }
-        if (high - pivotPoint > 1) {
-            quickSort(array, pivotPoint + 1, high);
-        }
-        }else{
-            if (pivotPoint - low > 1) {
-                insertionSort.sort(Arrays.copyOfRange(array,low, pivotPoint - 1));
+            if (pivotPoint - low > TRESHOLD) {
+                quickSort(array, low, pivotPoint - 1);
+            } else {
+                insertionSort.sort(array, low, pivotPoint);
             }
-            if (high - pivotPoint > 1) {
-                insertionSort.sort(Arrays.copyOfRange(array,pivotPoint+1, high));
+        }
+
+        if (high - pivotPoint > 1) {
+            if (high - pivotPoint > TRESHOLD) {
+                quickSort(array, pivotPoint + 1, high);
+            } else {
+                insertionSort.sort(array, pivotPoint, high);
             }
         }
     }
-
 
 
     protected int getPivotIndex(int[] array, int low, int high) {

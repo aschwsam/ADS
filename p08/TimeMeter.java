@@ -11,13 +11,13 @@ import java.util.Random;
  * Measure the speed of different sorting Algorithms.
  */
 abstract class TimeMeter {
-    private static final int CYCLES = 10000;
+    private static final int CYCLES = 1000;
 
 
-    static int measureNanoSeconds(SortingAlgorithm algorithm, ArraySizeCategory arraySizeCategory, InputTypeCategory inputTypeCategory) {
+    static int measureNanoSeconds(SortingAlgorithm algorithm, int arraySize, InputTypeCategory inputTypeCategory) {
         ArrayList<int[]> arrays = new ArrayList();
         for (int i = 0; i < CYCLES/100; i++) {
-            arrays.add(createArray(inputTypeCategory, arraySizeCategory.value));
+            arrays.add(createArray(inputTypeCategory, arraySize));
         }
         //warmup
         for (int[] array : arrays) {

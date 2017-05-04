@@ -12,14 +12,14 @@ import static org.junit.Assert.assertNotEquals;
 
 
 /**
- * @author Stephan Graf
+ * @author Stephan Graf (https://github.com/grafst)
  * @since 28.04.17
  * Test the sorting of an array of integers
  * This Test does currently not check for empty arrays and fields and other "wrong" inputs.
  */
 public class AlgorithmTest {
     private static final int TIMEOUT = 1000;
-    private static final SortingAlgorithm algorithm = new QuickSort3();
+    private static final SortingAlgorithm algorithm = new QuickSortTurbo();
 
    /*---------------------------------------------------- SORT -----------------------------------------------------*/
     /*These are different unsorted Arrays who should be sorted. */
@@ -696,19 +696,19 @@ public class AlgorithmTest {
         int length;
         Random random = new Random();
         for (int i = 0; i < 100000; i++) {
-            length = random.nextInt(15);
+            length = random.nextInt(15)+1;
             int[] array = new int[length];
             int[] reference = new int[length];
             for (int j = 0; j < length; j++) {
                 array[j] = random.nextInt(21) - 10;
             }
             System.arraycopy(array, 0, reference, 0, length);
+            System.out.println("run "+i);
+            System.out.println("unsorted:" + Arrays.toString(reference));
             algorithm.sort(array);
-            //System.out.println("run "+i);
-            //System.out.println("unsorted:" + Arrays.toString(reference));
-            //System.out.println("sorted  :" + Arrays.toString(array));
+            System.out.println("sorted  :" + Arrays.toString(array));
             Arrays.sort(reference);
-            //System.out.println("expected:" + Arrays.toString(reference));
+            System.out.println("expected:" + Arrays.toString(reference));
             for (int j = 0; j < length; j++) {
                 assertEquals(reference[j], array[j]);
             }

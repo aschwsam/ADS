@@ -3,12 +3,14 @@ package p08;
 
 class InsertionSort extends SortingAlgorithm{
 
-    @Override
-    public void sort(int[] array) {
-        if (isSortable(array)) {
-            for (int start = 1; start < array.length; start++) {
+    public void sort(int[] array){
+        sort(array,0,array.length-1);
+    }
+
+    public void sort(int[] array, int low, int high) {
+            for (int start = low; start <= high; start++) {
                 int preview = start;
-                while (preview > 0) {
+                while (preview > low) {
                     if (array[preview - 1] > array[preview]) {
                         int tmp = array[preview - 1];
                         array[preview - 1] = array[preview];
@@ -18,6 +20,4 @@ class InsertionSort extends SortingAlgorithm{
                 }
             }
         }
-    }
-
 }

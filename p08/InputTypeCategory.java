@@ -12,5 +12,5 @@ package p08;
  * Empty: The Array is not sorted
  */
 public enum InputTypeCategory {
-    SORTED,  EMPTY, RANDOM, ALMOST,DESCENDING
+    SORTED,  EMPTY, RANDOM, ALMOST,DESCENDING, HOMOGENIC
 }

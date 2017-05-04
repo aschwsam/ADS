@@ -1,23 +1,21 @@
 package p08;
 
 
-import java.util.logging.Logger;
-
-
 /**
  * @author Stephan Graf
  * @since 01.05.17
  */
-public class QuickSort3 extends SortingAlgorithm {
-    Logger logger = Logger.getLogger("quicksort");
-
+public class QuickSortSuperTurbo extends SortingAlgorithm {
+    final static int TRESHOLD = 12;
 
     @Override
     public void sort(int[] array) {
-      quickSort(array,0,array.length-1);
+        quickSort(array, 0, array.length - 1);
     }
-    public void quickSort(int[] array, int low, int high){
-        //System.out.println("quicksort");
+
+
+    public void quickSort(int[] array, int low, int high) {
+        InsertionSort insertionSort = new InsertionSort();
         int pivotPoint = getPivotIndex(array, low, high);
         int i = low;
         int j = high;
@@ -39,13 +37,23 @@ public class QuickSort3 extends SortingAlgorithm {
             }
         }
         if (pivotPoint - low > 1) {
-            quickSort(array, low, pivotPoint - 1);
+            if (pivotPoint - low > TRESHOLD) {
+                Thread thread=new Thread((Runnable)new QuickSortTurboThread(array,low,pivotPoint-1));
+                thread.start();
+            } else {
+                insertionSort.sort(array, low, pivotPoint);
+            }
         }
+
         if (high - pivotPoint > 1) {
-            quickSort(array, pivotPoint + 1, high);
+            if (high - pivotPoint > TRESHOLD) {
+                Thread thread2=new Thread(new QuickSortTurboThread(array,pivotPoint+1,high));
+                thread2.start();
+            } else {
+                insertionSort.sort(array, pivotPoint, high);
+            }
         }
     }
-
 
 
     protected int getPivotIndex(int[] array, int low, int high) {
