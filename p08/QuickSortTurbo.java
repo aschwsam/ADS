@@ -5,7 +5,7 @@ package p08;
  * @author Stephan Graf
  * @since 01.05.17
  */
-public class QuickSortTurbo extends SortingAlgorithm {
+public class QuickSortTurbo extends QuickSort3 {
     final static int TRESHOLD = 12;
 
     @Override
@@ -17,7 +17,7 @@ public class QuickSortTurbo extends SortingAlgorithm {
     }
 
 
-    private void quickSort(int[] array, int low, int high) {
+    public void quickSort(int[] array, int low, int high) {
         InsertionSort insertionSort = new InsertionSort();
         int pivotPoint = getPivotIndex(array, low, high);
         int i = low;
@@ -55,7 +55,6 @@ public class QuickSortTurbo extends SortingAlgorithm {
             }
         }
     }
-
 
     protected int getPivotIndex(int[] array, int low, int high) {
         return ((high - low) / 2) + low;

@@ -2,7 +2,6 @@ package p08;
 
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 
 /**
@@ -14,7 +13,7 @@ public class MedianQuickSort extends QuickSort3 {
     @Override
     protected int getPivotIndex(int[] array, int low, int high) {
         int middle = super.getPivotIndex(array, low, high);
-        HashMap<Integer, Integer> medianPointers = new HashMap<>();
+        /*HashMap<Integer, Integer> medianPointers = new HashMap<>();
         medianPointers.put(array[low], low);
         medianPointers.put(array[high], high);
         medianPointers.put(array[middle], middle);
@@ -25,6 +24,17 @@ public class MedianQuickSort extends QuickSort3 {
             j++;
         }
         return medianPointers.get(median(a));
+        */
+
+        if(array[middle]<array[high]&&array[middle]>array[low]||array[middle]>array[high]&&array[middle]<array[low]){
+            return middle;
+        }
+        if(array[low]<array[high]&&array[low]>array[middle]||array[low]>array[high]&&array[low]<array[middle]){
+            return low;
+        }else{
+            return high;
+        }
+
     }
 
 

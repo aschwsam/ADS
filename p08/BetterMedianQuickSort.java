@@ -26,6 +26,7 @@ public class BetterMedianQuickSort extends QuickSort3 {
             a[j] = i;
             j++;
         }
+        int x=medianPointers.get(median(a));
         return medianPointers.get(median(a));
     }
 

@@ -11,7 +11,7 @@ import java.util.Random;
  * Measure the speed of different sorting Algorithms.
  */
 abstract class TimeMeter {
-    private static final int CYCLES = 1000;
+    private static final int CYCLES = 10000;
 
 
     static int measureNanoSeconds(SortingAlgorithm algorithm, int arraySize, InputTypeCategory inputTypeCategory) {

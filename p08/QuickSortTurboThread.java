@@ -7,16 +7,11 @@ package p08;
  */
 public class QuickSortTurboThread extends QuickSortTurbo implements Runnable{
     private final int[] array;
-    private final int low;
-    private final int high;
-    public QuickSortTurboThread(int[] array, int low, int high) {
-
+    public QuickSortTurboThread(int[] array) {
         this.array = array;
-        this.low=low;
-        this.high=high;
     }
     public void run(){
-        super.sort(array,low,high);
+        super.sort(array);
     }
 
 }

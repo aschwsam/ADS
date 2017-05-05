@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotEquals;
  */
 public class AlgorithmTest {
     private static final int TIMEOUT = 1000;
-    private static final SortingAlgorithm algorithm = new QuickSortTurbo();
+    private static final SortingAlgorithm algorithm = new MedianQuickSort();
 
    /*---------------------------------------------------- SORT -----------------------------------------------------*/
     /*These are different unsorted Arrays who should be sorted. */
