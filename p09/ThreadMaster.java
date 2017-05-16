@@ -2,16 +2,18 @@ package p09;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
+
+import static java.lang.Thread.sleep;
 
 public class ThreadMaster {
 
-    private static int poolSize = 3;  // Limit by cores
+    private static DocumentStatistics dcs = new DocumentStatistics();
+
+    private static int poolSize = 5;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
+    private static FileHandler[] pool = new FileHandler[poolSize];
 
     public static void main(String Args[]){
-
-        File directory = new File("");
 
         if(Args[0]!=null){
             try{
@@ -31,6 +33,23 @@ public class ThreadMaster {
                 } else {
                     System.out.println("All files in use");
                 }
+
+                // Run threads
+                System.out.println("Running threads");
+                pool[0].start();
+                pool[1].start();
+                pool[2].start();
+                pool[3].start();
+                pool[4].start();
+
+                // TODO: remove debug
+                try{
+                    sleep(1000);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+
+                System.out.println(dcs.getWordcount());
 
             } catch (NullPointerException e){
                 System.out.println("Unable to read directory!");
@@ -53,6 +72,12 @@ public class ThreadMaster {
             } else {
                 // Write path to file in arraylist
                 fileList.add(element.toString());
+
+                // Increase documentCounter
+                dcs.setDocumentCounter();
+
+                // Increase total file size
+                dcs.setDocumentSize(element.length());
             }
         }
     }
@@ -76,14 +101,13 @@ public class ThreadMaster {
         }
 
         // Fill threadpool
-        FileHandler[] pool = new FileHandler[poolSize];
         for(int threadCount = 0;threadCount<poolSize;threadCount++){
 
             // TODO: Remove debugger
-            System.out.println("Working on thread: "+fileList.get(threadCount));
+            System.out.println("Creating thread for: "+fileList.get(threadCount));
 
-            // Create thread
-            pool[threadCount] = new FileHandler(fileList.get(threadCount));
+            // Create thread and store in array
+            pool[threadCount] = new FileHandler(fileList.get(threadCount),dcs);
         }
     }
 }
