@@ -1,8 +1,8 @@
 package p09;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
@@ -16,7 +16,7 @@ public class DocumentStatistics {
     private int documentCharactersTotal = 0;
     private int totalWords = 0;
     private int totalUniqueWords = 0;
-    private ConcurrentHashMap<String,String> uniqueWords = new ConcurrentHashMap<>();
+    private HashSet<String> uniqueWords = new HashSet<>();
     private HashMap<String,Integer> wordRanking = new HashMap<>();
 
     public DocumentStatistics(){
@@ -27,12 +27,14 @@ public class DocumentStatistics {
         totalWords+=wordcount;
     }
 
-    public synchronized void setDifferentWordcount(ConcurrentHashMap<String,String> inputdata){
-        for(Map.Entry<String,String> word : inputdata.entrySet()){
-            if(!uniqueWords.contains(word.getKey())){
-                totalUniqueWords++;
-                uniqueWords.put(word.getKey(),"");
-            }
+    public synchronized void setUniqueWord(String inputdata){
+        if(!uniqueWords.contains(inputdata)){
+
+            // TODO: Remove debug
+            //System.out.println(inputdata);
+
+            totalUniqueWords++;
+            uniqueWords.add(inputdata);
         }
     }
 
@@ -73,10 +75,6 @@ public class DocumentStatistics {
 
     public int getDifferentWordcount(){
         return totalUniqueWords;
-    }
-
-    public ConcurrentHashMap<String,String> getUniqueWords(){
-        return uniqueWords;
     }
 
     public long getDocumentSize(){

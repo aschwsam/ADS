@@ -9,12 +9,14 @@ public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
 
-    private static int poolSize = 2;  // Limit by cores
+    private static int poolSize = 4;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
     private static FileHandler[] pool = new FileHandler[poolSize];
     private static ExecutorService executorService;
 
     public static void main(String Args[]){
+
+        long startTime = System.currentTimeMillis();
 
         if(Args[0]!=null){
             try{
@@ -32,6 +34,9 @@ public class ThreadMaster {
 
                 System.out.println("We're done...");
                 System.out.println(dcs.getWordcount());
+
+                long stopTime = System.currentTimeMillis();
+                System.out.println("Job FINALLY done in "+(stopTime-startTime));
 
             } catch (NullPointerException e){
                 System.out.println("Unable to read directory!");

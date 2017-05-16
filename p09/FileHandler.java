@@ -2,8 +2,8 @@ package p09;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Read file from filesystem
@@ -15,7 +15,6 @@ public class FileHandler implements Runnable{
     private int totalCharacters = 0;
 
     public FileHandler(String pathToFile,DocumentStatistics dcs){
-        super();
         this.pathToFile = pathToFile;
         this.dcs = dcs;
     }
@@ -26,11 +25,13 @@ public class FileHandler implements Runnable{
     @Override
     public void run(){
 
-        System.out.println(Thread.currentThread().getName()+" started.");
+        // DEBUG
+        //long startTime = System.currentTimeMillis();
+        //System.out.println(Thread.currentThread().getName()+" started.");
 
         int wordcount = 0;
         String word = null;
-        ConcurrentHashMap<String,String> uniqueWords = dcs.getUniqueWords();
+        HashSet<String> localUniqueWords = new HashSet<>();
         HashMap<String,Integer> wordEncounter = new HashMap<>();
 
         try{
@@ -57,7 +58,14 @@ public class FileHandler implements Runnable{
                         wordEncounter.put(word,1);
 
                         // Try to add word to unique wordlist
-                        uniqueWords.put(word,"");
+                        if(!localUniqueWords.contains(word)){
+
+                            // Send new word to "global" set
+                            dcs.setUniqueWord(word);
+
+                            // Update local set
+                            localUniqueWords.add(word);
+                        }
                     }
 
                     // TODO: Remove debugger
@@ -68,14 +76,15 @@ public class FileHandler implements Runnable{
             // Send wordcount to dcs
             dcs.setWordcount(wordcount);
 
-            // Send different words to dcs
-            dcs.setDifferentWordcount(uniqueWords);
-
             // Send word encounter to dcs
             dcs.setWordRanking(wordEncounter);
 
             // Send document characters to dcs
             dcs.setDocumentCharacters(totalCharacters);
+
+            // DEBUG
+            //long stopTime = System.currentTimeMillis();
+            //System.out.println("Job done in "+(stopTime-startTime));
 
         } catch (FileNotFoundException e){
             e.printStackTrace();
