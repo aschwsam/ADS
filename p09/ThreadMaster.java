@@ -14,6 +14,10 @@ public class ThreadMaster {
     private static FileHandler[] pool = new FileHandler[poolSize];
     private static ExecutorService executorService;
 
+    /**
+     * Main method to start the parser
+     * @param Args
+     */
     public static void main(String Args[]){
 
         // DEBUG
@@ -70,6 +74,10 @@ public class ThreadMaster {
         }
     }
 
+    /**
+     * Verify that at least one file is present
+     * @return
+     */
     private static boolean verifyFileList(){
         // Check fileList length
         if(fileList.size()==0){
@@ -80,6 +88,12 @@ public class ThreadMaster {
         }
     }
 
+    /**
+     * Create a thread pool (poolSize will be overwritten if fewer files are
+     * present than threads)
+     *
+     * Queues all documents and starts executing parser threads
+     */
     private static void createThreads(){
         // Reduce the amount of threads if less files available than possible threads
         if(fileList.size()<poolSize){

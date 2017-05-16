@@ -91,6 +91,11 @@ public class FileHandler implements Runnable{
         }
     }
 
+    /**
+     * Removes any non word characters from string
+     * @param input
+     * @return
+     */
     private String removeSpecialChar(String input){
 
         // TODO: Enable this if character count is with special chars
