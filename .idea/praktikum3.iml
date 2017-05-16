@@ -10,6 +10,10 @@
       <excludeFolder url="file://$MODULE_DIR$/p03" />
       <excludeFolder url="file://$MODULE_DIR$/p03/marathon" />
       <excludeFolder url="file://$MODULE_DIR$/p04" />
+      <excludeFolder url="file://$MODULE_DIR$/p05" />
+      <excludeFolder url="file://$MODULE_DIR$/p06" />
+      <excludeFolder url="file://$MODULE_DIR$/p07" />
+      <excludeFolder url="file://$MODULE_DIR$/p08" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
