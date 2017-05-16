@@ -6,8 +6,7 @@ import java.util.Map;
 
 
 /**
- * This class holds global statistics
- * -> Average textsize is unique for each document
+ * This class holds global statistics about the input files
  */
 public class DocumentStatistics {
 
@@ -33,7 +32,7 @@ public class DocumentStatistics {
             // TODO: Remove debug
             //System.out.println(inputdata);
 
-            totalUniqueWords++;
+            setTotalUniqueWords();
             uniqueWords.add(inputdata);
         }
     }
@@ -87,5 +86,9 @@ public class DocumentStatistics {
 
     public int getAverageDocumentCharacters(){
         return documentCharactersTotal/documentCounter;
+    }
+
+    private void setTotalUniqueWords(){
+        totalUniqueWords++;
     }
 }

@@ -68,7 +68,7 @@ public class FileHandler implements Runnable{
                         }
                     }
 
-                    // TODO: Remove debugger
+                    // DEBUG
                     //System.out.println(word+" => "+word.length());
                 }
             }

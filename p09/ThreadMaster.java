@@ -16,7 +16,8 @@ public class ThreadMaster {
 
     public static void main(String Args[]){
 
-        long startTime = System.currentTimeMillis();
+        // DEBUG
+        //long startTime = System.currentTimeMillis();
 
         if(Args[0]!=null){
             try{
@@ -32,11 +33,11 @@ public class ThreadMaster {
                     // wait for threads to finish
                 }
 
-                System.out.println("We're done...");
-                System.out.println(dcs.getWordcount());
+                // DEBUG
+                //System.out.println("We're done...");
 
-                long stopTime = System.currentTimeMillis();
-                System.out.println("Job FINALLY done in "+(stopTime-startTime));
+                //long stopTime = System.currentTimeMillis();
+                //System.out.println("Job FINALLY done in "+(stopTime-startTime));
 
             } catch (NullPointerException e){
                 System.out.println("Unable to read directory!");
@@ -82,7 +83,7 @@ public class ThreadMaster {
     private static void createThreads(){
         // Reduce the amount of threads if less files available than possible threads
         if(fileList.size()<poolSize){
-            System.out.println("Reduce pool size");
+            System.out.println("Reduced pool size");
             poolSize = fileList.size();
         }
 
