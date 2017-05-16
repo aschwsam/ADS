@@ -1,10 +1,7 @@
 package p09;
 
-import sun.net.www.content.text.Generic;
-
 import java.io.*;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -39,7 +36,7 @@ public class FileHandler extends Thread{
             // Loop through words of file
             while(scanner.hasNext()){
 
-                word = scanner.next();
+                word = removeSpecialChar(scanner.next());
                 wordcount++;
                 if(wordEncounter.containsKey(word)){
                     // Increase word encounter by one
