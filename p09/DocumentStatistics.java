@@ -13,6 +13,7 @@ public class DocumentStatistics {
 
     private long documentSize = 0;
     private int documentCounter = 0;
+    private int documentCharactersTotal = 0;
     private int totalWords = 0;
     private int totalUniqueWords = 0;
     private ConcurrentHashMap<String,String> uniqueWords = new ConcurrentHashMap<>();
@@ -54,6 +55,10 @@ public class DocumentStatistics {
         }
     }
 
+    public synchronized void setDocumentCharacters(int inputdata){
+        documentCharactersTotal+=inputdata;
+    }
+
     public void setDocumentSize(long inputdata){
         documentSize+=inputdata;
     }
@@ -80,5 +85,9 @@ public class DocumentStatistics {
 
     public int getDocumentCounter(){
         return documentCounter;
+    }
+
+    public int getAverageDocumentCharacters(){
+        return documentCharactersTotal/documentCounter;
     }
 }

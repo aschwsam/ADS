@@ -8,10 +8,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Read file from filesystem
  */
-public class FileHandler extends Thread{
+public class FileHandler implements Runnable{
 
     private String pathToFile;
     private DocumentStatistics dcs;
+    private int totalCharacters = 0;
 
     public FileHandler(String pathToFile,DocumentStatistics dcs){
         super();
@@ -22,7 +23,10 @@ public class FileHandler extends Thread{
     /**
      * Read the file from disk
      */
+    @Override
     public void run(){
+
+        System.out.println(Thread.currentThread().getName()+" started.");
 
         int wordcount = 0;
         String word = null;
@@ -37,20 +41,28 @@ public class FileHandler extends Thread{
             while(scanner.hasNext()){
 
                 word = removeSpecialChar(scanner.next());
-                wordcount++;
-                if(wordEncounter.containsKey(word)){
-                    // Increase word encounter by one
-                    wordEncounter.put(word,wordEncounter.get(word)+1);
-                } else {
-                    // Add to the index
-                    wordEncounter.put(word,1);
 
-                    // Try to add word to unique wordlist
-                    uniqueWords.put(word,"");
+                if(word.length()>0){
+
+                    wordcount++;
+
+                    // TODO: Disable this if character count is with special chars
+                    totalCharacters+=word.length();
+
+                    if(wordEncounter.containsKey(word)){
+                        // Increase word encounter by one
+                        wordEncounter.put(word,wordEncounter.get(word)+1);
+                    } else {
+                        // Add to the index
+                        wordEncounter.put(word,1);
+
+                        // Try to add word to unique wordlist
+                        uniqueWords.put(word,"");
+                    }
+
+                    // TODO: Remove debugger
+                    //System.out.println(word+" => "+word.length());
                 }
-
-                // TODO: Remove debugger
-                //System.out.println(removeSpecialChar(scanner.next()));
             }
 
             // Send wordcount to dcs
@@ -62,12 +74,19 @@ public class FileHandler extends Thread{
             // Send word encounter to dcs
             dcs.setWordRanking(wordEncounter);
 
+            // Send document characters to dcs
+            dcs.setDocumentCharacters(totalCharacters);
+
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
 
     private String removeSpecialChar(String input){
+
+        // TODO: Enable this if character count is with special chars
+        //totalCharacters+=input.length();
+
         return input.replaceAll("[^\\p{L}\\p{Nd}]+", "");
     }
 }

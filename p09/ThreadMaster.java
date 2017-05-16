@@ -2,16 +2,17 @@ package p09;
 
 import java.io.File;
 import java.util.ArrayList;
-
-import static java.lang.Thread.sleep;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
 
-    private static int poolSize = 5;  // Limit by cores
+    private static int poolSize = 2;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
     private static FileHandler[] pool = new FileHandler[poolSize];
+    private static ExecutorService executorService;
 
     public static void main(String Args[]){
 
@@ -24,31 +25,12 @@ public class ThreadMaster {
                     createThreads();
                 }
 
-                if(fileList.size()>0){
-                    for(int index = poolSize;index<fileList.size();index++){
-
-                        // Files in queue
-                        System.out.println(fileList.get(index));
-                    }
-                } else {
-                    System.out.println("All files in use");
+                executorService.shutdown();
+                while(!executorService.isTerminated()){
+                    // wait for threads to finish
                 }
 
-                // Run threads
-                System.out.println("Running threads");
-                pool[0].start();
-                pool[1].start();
-                pool[2].start();
-                pool[3].start();
-                pool[4].start();
-
-                // TODO: remove debug
-                try{
-                    sleep(1000);
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-
+                System.out.println("We're done...");
                 System.out.println(dcs.getWordcount());
 
             } catch (NullPointerException e){
@@ -93,21 +75,18 @@ public class ThreadMaster {
     }
 
     private static void createThreads(){
-        // Reduce the amount of threads if less files available than cores
-        // --> No need to spawn idle threads
+        // Reduce the amount of threads if less files available than possible threads
         if(fileList.size()<poolSize){
             System.out.println("Reduce pool size");
             poolSize = fileList.size();
         }
 
-        // Fill threadpool
-        for(int threadCount = 0;threadCount<poolSize;threadCount++){
+        // Create threadpool
+        executorService = Executors.newFixedThreadPool(poolSize);
 
-            // TODO: Remove debugger
-            System.out.println("Creating thread for: "+fileList.get(threadCount));
-
-            // Create thread and store in array
-            pool[threadCount] = new FileHandler(fileList.get(threadCount),dcs);
+        // Queue tasks
+        for(String path : fileList){
+            executorService.submit(new FileHandler(path,dcs));
         }
     }
 }

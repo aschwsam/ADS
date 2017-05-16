@@ -4,10 +4,11 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="Quickfix for document size and document counter">
+    <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="Fix enabled special char removal">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/DocumentStatistics.java" afterPath="$PROJECT_DIR$/p09/DocumentStatistics.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/FileHandler.java" afterPath="$PROJECT_DIR$/p09/FileHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/ThreadMaster.java" afterPath="$PROJECT_DIR$/p09/ThreadMaster.java" />
     </list>
     <list id="a05c7fef-5c92-4d00-b5ec-cbc092182dcd" name="Rejected commit: Default" comment="add Node" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="ThreadMaster.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThreadMaster.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+            <state relative-caret-position="275">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,15 +36,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="52" column="72" lean-forward="true" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
+            <state relative-caret-position="1900">
+              <caret line="76" column="46" lean-forward="true" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2036#2037#0" expanded="true" />
-                <element signature="e#2100#2101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,25 +51,30 @@
       <file leaf-file-name="DocumentStatistics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="2250">
+              <caret line="90" column="55" lean-forward="true" selection-start-line="90" selection-start-column="55" selection-end-line="90" selection-end-column="55" />
               <folding>
-                <element signature="e#636#637#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
-                <element signature="e#1785#1786#0" expanded="true" />
-                <element signature="e#1824#1825#0" expanded="true" />
-                <element signature="e#1857#1858#0" expanded="true" />
-                <element signature="e#1889#1890#0" expanded="true" />
-                <element signature="e#1922#1923#0" expanded="true" />
-                <element signature="e#1963#1964#0" expanded="true" />
-                <element signature="e#2002#2003#0" expanded="true" />
-                <element signature="e#2065#2066#0" expanded="true" />
-                <element signature="e#2099#2100#0" expanded="true" />
-                <element signature="e#2135#2136#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-                <element signature="e#2208#2209#0" expanded="true" />
-                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
+                <element signature="e#1859#1860#0" expanded="true" />
+                <element signature="e#1909#1910#0" expanded="true" />
+                <element signature="e#1948#1949#0" expanded="true" />
+                <element signature="e#1987#1988#0" expanded="true" />
+                <element signature="e#2020#2021#0" expanded="true" />
+                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="e#2085#2086#0" expanded="true" />
+                <element signature="e#2126#2127#0" expanded="true" />
+                <element signature="e#2165#2166#0" expanded="true" />
+                <element signature="e#2228#2229#0" expanded="true" />
+                <element signature="e#2262#2263#0" expanded="true" />
+                <element signature="e#2298#2299#0" expanded="true" />
+                <element signature="e#2333#2334#0" expanded="true" />
+                <element signature="e#2371#2372#0" expanded="true" />
+                <element signature="e#2409#2410#0" expanded="true" />
+                <element signature="e#2457#2458#0" expanded="true" />
+                <element signature="e#2519#2520#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,9 +159,9 @@
         <option value="$PROJECT_DIR$/p08/ArraySizeCategory.java" />
         <option value="$PROJECT_DIR$/p08/TimeMeter.java" />
         <option value="$PROJECT_DIR$/p08/Main.java" />
-        <option value="$PROJECT_DIR$/p09/ThreadMaster.java" />
-        <option value="$PROJECT_DIR$/p09/DocumentStatistics.java" />
         <option value="$PROJECT_DIR$/p09/FileHandler.java" />
+        <option value="$PROJECT_DIR$/p09/DocumentStatistics.java" />
+        <option value="$PROJECT_DIR$/p09/ThreadMaster.java" />
       </list>
     </option>
   </component>
@@ -714,7 +718,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490782066888</updated>
-      <workItem from="1494941295434" duration="9861000" />
+      <workItem from="1494941295434" duration="13092000" />
     </task>
     <task id="LOCAL-00001" summary="add Edge">
       <created>1490798813390</created>
@@ -891,7 +895,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494952013151</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fix enabled special char removal">
+      <created>1494952304147</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1494952304147</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -927,7 +938,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9861000" />
+    <option name="totallyTimeSpent" value="13092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -945,13 +956,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49893898" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4031008" sideWeight="0.48222813" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4031008" sideWeight="0.4811671" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33540052" sideWeight="0.3214854" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33540052" sideWeight="0.32281166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33540052" sideWeight="0.6785146" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33540052" sideWeight="0.67718834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2967614" sideWeight="0.4898036" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49681696" order="7" side_tool="false" content_ui="tabs" />
@@ -1003,7 +1014,8 @@
     <MESSAGE value="p09 started" />
     <MESSAGE value="Added document counter&#10;Added document size&#10;Added total word counter&#10;Added total unique word counter" />
     <MESSAGE value="Quickfix for document size and document counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quickfix for document size and document counter" />
+    <MESSAGE value="Fix enabled special char removal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix enabled special char removal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1288,10 +1300,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
+    <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+        <state relative-caret-position="1900">
+          <caret line="76" column="46" lean-forward="true" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1300,37 +1312,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="2250">
+          <caret line="90" column="55" lean-forward="true" selection-start-line="90" selection-start-column="55" selection-end-line="90" selection-end-column="55" />
           <folding>
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-            <element signature="e#1824#1825#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1922#1923#0" expanded="true" />
-            <element signature="e#1963#1964#0" expanded="true" />
-            <element signature="e#2002#2003#0" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2099#2100#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2208#2209#0" expanded="true" />
-            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+            <element signature="e#1859#1860#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2020#2021#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2085#2086#0" expanded="true" />
+            <element signature="e#2126#2127#0" expanded="true" />
+            <element signature="e#2165#2166#0" expanded="true" />
+            <element signature="e#2228#2229#0" expanded="true" />
+            <element signature="e#2262#2263#0" expanded="true" />
+            <element signature="e#2298#2299#0" expanded="true" />
+            <element signature="e#2333#2334#0" expanded="true" />
+            <element signature="e#2371#2372#0" expanded="true" />
+            <element signature="e#2409#2410#0" expanded="true" />
+            <element signature="e#2457#2458#0" expanded="true" />
+            <element signature="e#2519#2520#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
+    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="52" column="72" lean-forward="true" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
+        <state relative-caret-position="275">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2100#2101#0" expanded="true" />
           </folding>
         </state>
       </provider>
