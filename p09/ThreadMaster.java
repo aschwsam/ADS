@@ -8,10 +8,10 @@ import java.util.concurrent.Executors;
 public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
+    private static WordSearch ws = new WordSearch();
 
     private static int poolSize = 4;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
-    private static FileHandler[] pool = new FileHandler[poolSize];
     private static ExecutorService executorService;
 
     /**
@@ -21,7 +21,7 @@ public class ThreadMaster {
     public static void main(String Args[]){
 
         // DEBUG
-        //long startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
 
         if(Args[0]!=null){
             try{
@@ -40,8 +40,14 @@ public class ThreadMaster {
                 // DEBUG
                 //System.out.println("We're done...");
 
-                //long stopTime = System.currentTimeMillis();
-                //System.out.println("Job FINALLY done in "+(stopTime-startTime));
+                long stopTime = System.currentTimeMillis();
+                System.out.println("Job FINALLY done in "+(stopTime-startTime));
+
+                if(ws.searchWord("Hello") != null){
+                    for(String asd : ws.searchWord("Hello")){
+                        System.out.println(asd);
+                    }
+                }
 
             } catch (NullPointerException e){
                 System.out.println("Unable to read directory!");
@@ -106,7 +112,7 @@ public class ThreadMaster {
 
         // Queue tasks
         for(String path : fileList){
-            executorService.submit(new FileHandler(path,dcs));
+            executorService.submit(new FileHandler(path,dcs,ws));
         }
     }
 }
