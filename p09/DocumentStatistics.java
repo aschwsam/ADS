@@ -75,8 +75,11 @@ public class DocumentStatistics {
         return uniqueWords;
     }
 
-    public int getDocumentSize(){
+    public long getDocumentSize(){
+        return documentSize;
+    }
 
-        return 0;
+    public int getDocumentCounter(){
+        return documentCounter;
     }
 }
