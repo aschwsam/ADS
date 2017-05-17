@@ -47,7 +47,7 @@ public class DocumentStatistics {
 
     /**
      * Updates word occurrence over all documents
-     * @param inputdata
+     * @param inputdata Map containing word / occurrence
      */
     public synchronized void setWordRanking(HashMap<String,Integer> inputdata){
 
@@ -70,7 +70,7 @@ public class DocumentStatistics {
 
     /**
      * Updates character counter over all documents
-     * @param inputdata
+     * @param inputdata current document characters
      */
     public synchronized void setDocumentCharacters(int inputdata){
         documentCharactersTotal+=inputdata;
@@ -78,7 +78,7 @@ public class DocumentStatistics {
 
     /**
      * Updates total document size
-     * @param inputdata
+     * @param inputdata current document size
      */
     public void setDocumentSize(long inputdata){
         documentSize+=inputdata;
@@ -93,7 +93,7 @@ public class DocumentStatistics {
 
     /**
      * Returns the total of words found in files
-     * @return
+     * @return word counter (int)
      */
     public int getWordcount(){
         return totalWords;
@@ -101,7 +101,7 @@ public class DocumentStatistics {
 
     /**
      * Returns total of unique words found
-     * @return
+     * @return unique word counter (int)
      */
     public int getDifferentWordcount(){
         return totalUniqueWords;
@@ -109,16 +109,26 @@ public class DocumentStatistics {
 
     /**
      * Returns total document size (in KB)
-     * TODO: Scale output accoringly (KB/MB/GB)
-     * @return
+     * @return document size (String)
      */
-    public long getDocumentSize(){
-        return documentSize;
+    public String getDocumentSize(){
+        if(documentSize>1000000){
+            // MB
+            return documentSize/1048576+" MB";
+        } else {
+            if(documentSize>1024){
+                // KB
+                return documentSize/1024+" KB";
+            } else {
+                // Byte
+                return documentSize+" Byte";
+            }
+        }
     }
 
     /**
      * Returns the amount of processed documents
-     * @return
+     * @return amount of documents (int)
      */
     public int getDocumentCounter(){
         return documentCounter;
@@ -126,10 +136,18 @@ public class DocumentStatistics {
 
     /**
      * Returns the average characters per document
-     * @return
+     * @return average of characters (int)
      */
     public int getAverageDocumentCharacters(){
         return documentCharactersTotal/documentCounter;
+    }
+
+    /**
+     * Returns the wordRanking Map for BTree generation
+     * @return HashMap containing word / occurrence
+     */
+    public HashMap<String,Integer> getWordRanking(){
+        return wordRanking;
     }
 
     /**

@@ -3,13 +3,12 @@ package p09;
 public class BTree {
 
     private Node root;
-    private int counter=0;
-
-    public static void main(String Args[]){
-        BTree bt = new BTree();
-    }
+    private int limit=10;   // Default to Top10
 
     public BTree(){
+
+        // DEBUG
+        /*
         addNode(5,"");
         addNode(15,"");
         addNode(11,"");
@@ -21,11 +20,17 @@ public class BTree {
         addNode(14,"");
         addNode(12,"");
 
-        getDescendingElements(root);
+        getDescendingElements(5);
+        */
     }
 
-    public void addNode(int occurence, String word){
-        Node newNode = new Node(occurence, word);
+    /**
+     * Add a new node to the tree
+     * @param occurrence weight for node (occurrence)
+     * @param word node value (word)
+     */
+    public void addNode(int occurrence, String word){
+        Node newNode = new Node(occurrence, word);
         Node currentNode = root;
 
         if(root == null){
@@ -34,7 +39,7 @@ public class BTree {
 
             while(true){
                 // Decide which side to traverse
-                if(currentNode.getOccurence() > newNode.getOccurence()){
+                if(currentNode.getOccurrence() > newNode.getOccurrence()){
                     // Go left
 
                     // Check if there is a left child
@@ -68,65 +73,128 @@ public class BTree {
 
     /**
      * Prints Nodes in descending order
-     * Requires root node as parameter to start
-     * @param currentNode
+     * --> Causes Stackoverflow!
+     * TODO: Fix Stackoverflow
      */
-    public void getDescendingElements(Node currentNode){
+    public void getDescendingElements(){
+        getDescendingElements(root);
+    }
 
-        while(true){
+    /**
+     * Prints top n nodes in descending order
+     * @param limit user defined limit for n
+     */
+    public void getDescendingElements(int limit){
+        this.limit = limit;
+        getDescendingElementsLimited(root);
+    }
 
-            // Try to go as far right as possible
-            if(currentNode.getRightChild()!=null){
-                getDescendingElements(currentNode.getRightChild());
-            }
+    /**
+     * Internal handler for getDescendingElements
+     * @param currentNode root node
+     */
+    private void getDescendingElements(Node currentNode){
+        // Try to go as far right as possible
+        if(currentNode.getRightChild()!=null){
+            getDescendingElements(currentNode.getRightChild());
+        }
 
+        // Back from higher values - print current value
+        System.out.println(currentNode.getOccurrence());
+
+        // Check for lower values
+        if(currentNode.getLeftChild()!=null){
+            getDescendingElements(currentNode.getLeftChild());
+        }
+    }
+
+    /**
+     * Print limited amount of nodes in descending order
+     * @param currentNode root node
+     */
+    private void getDescendingElementsLimited(Node currentNode){
+        // Try to go as far right as possible
+        if(currentNode.getRightChild()!=null){
+            getDescendingElementsLimited(currentNode.getRightChild());
+        }
+
+        // Start countdown
+        if(limit>0){
             // Back from higher values - print current value
-            System.out.println(currentNode.getOccurence());
+            System.out.println(currentNode.getOccurrence());
+            limit--;
+        }
 
-            // Check for lower values
-            if(currentNode.getLeftChild()!=null){
-                getDescendingElements(currentNode.getLeftChild());
-            }
-
-            break;
+        // Check for lower values
+        if(currentNode.getLeftChild()!=null){
+            getDescendingElementsLimited(currentNode.getLeftChild());
         }
     }
 
     private class Node {
 
-        private int occurence=0;
+        private int occurrence =0;
         private String word = null;
 
         private Node leftChild = null;
         private Node rightChild = null;
 
-        public Node(int occurence, String word){
-            this.occurence = occurence;
+        /**
+         * Node constructor
+         * @param occurrence (int) occurrence
+         * @param word (String) word
+         */
+        public Node(int occurrence, String word){
+            this.occurrence = occurrence;
             this.word = word;
         }
 
+        /**
+         * Set left child
+         * @param left (Node)
+         */
         public void setLeftChild(Node left){
             leftChild = left;
         }
 
+        /**
+         * Set right child
+         * @param right (Node)
+         */
         public void setRightChild(Node right){
             rightChild = right;
         }
 
+        /**
+         * Get left child
+         * @return (Node) left child of current node
+         */
         public Node getLeftChild(){
             return leftChild;
         }
 
+        /**
+         * Get right child
+         * @return (Node) right child of current node
+         */
         public Node getRightChild(){
             return rightChild;
         }
 
+        /**
+         * Get word value of current node
+         * @return (String) word
+         */
         public String getWord(){
             return word;
         }
 
-        public int getOccurence(){
-            return occurence;
+        /**
+         * Get occurrence of word held by this node
+         * @return (int) occurrence
+         */
+        public int getOccurrence(){
+            return occurrence;
         }
     }
 

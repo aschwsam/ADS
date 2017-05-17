@@ -15,8 +15,8 @@ public class WordSearch {
 
     /**
      * Creates a Map which contains all words and there sources
-     * @param words
-     * @param pathToFile
+     * @param words every word from a specific document
+     * @param pathToFile path to document of "words"
      */
     public synchronized void addWordInDocument(HashMap<String,Integer> words, String pathToFile){
         for(Map.Entry<String,Integer> entry : words.entrySet()){
@@ -39,7 +39,7 @@ public class WordSearch {
 
     /**
      * Search for a single word in map
-     * @param input
+     * @param input the search term
      * @return ArrayList with path to files containing the word
      */
     public ArrayList<String> searchWord(String input){
@@ -47,9 +47,7 @@ public class WordSearch {
             if(wordInDocument.containsKey(input)){
                 ArrayList<String> result = new ArrayList<>();
 
-                for(String files : wordInDocument.get(input)){
-                    result.add(files);
-                }
+                result.addAll(wordInDocument.get(input));
 
                 return result;
             }
