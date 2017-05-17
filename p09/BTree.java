@@ -94,17 +94,23 @@ public class BTree {
      * @param currentNode root node
      */
     private void getDescendingElements(Node currentNode){
-        // Try to go as far right as possible
-        if(currentNode.getRightChild()!=null){
-            getDescendingElements(currentNode.getRightChild());
-        }
 
-        // Back from higher values - print current value
-        System.out.println(currentNode.getOccurrence());
+        while(true){
 
-        // Check for lower values
-        if(currentNode.getLeftChild()!=null){
-            getDescendingElements(currentNode.getLeftChild());
+            // Try to go as far right as possible
+            if(currentNode.getRightChild()!=null){
+                getDescendingElements(currentNode.getRightChild());
+            }
+
+            // Back from higher values - print current value
+            System.out.println(currentNode.getOccurrence()+" "+currentNode.getWord());
+
+            // Check for lower values
+            if(currentNode.getLeftChild()!=null){
+                getDescendingElements(currentNode.getLeftChild());
+            }
+
+            break;
         }
     }
 
@@ -113,21 +119,28 @@ public class BTree {
      * @param currentNode root node
      */
     private void getDescendingElementsLimited(Node currentNode){
-        // Try to go as far right as possible
-        if(currentNode.getRightChild()!=null){
-            getDescendingElementsLimited(currentNode.getRightChild());
-        }
 
-        // Start countdown
-        if(limit>0){
-            // Back from higher values - print current value
-            System.out.println(currentNode.getOccurrence());
-            limit--;
-        }
+        while(true){
 
-        // Check for lower values
-        if(currentNode.getLeftChild()!=null){
-            getDescendingElementsLimited(currentNode.getLeftChild());
+            // Try to go as far right as possible
+            if(currentNode.getRightChild()!=null){
+                getDescendingElementsLimited(currentNode.getRightChild());
+            }
+
+            // Start countdown
+            if(limit>0){
+                // Back from higher values - print current value
+                System.out.println(currentNode.getOccurrence()+" "+currentNode.getWord());
+                limit--;
+            } else {
+                break;
+            }
+
+            // Check for lower values
+            if(currentNode.getLeftChild()!=null){
+                getDescendingElementsLimited(currentNode.getLeftChild());
+            }
+            break;
         }
     }
 
