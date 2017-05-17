@@ -13,6 +13,11 @@ public class WordSearch {
 
     }
 
+    /**
+     * Creates a Map which contains all words and there sources
+     * @param words
+     * @param pathToFile
+     */
     public synchronized void addWordInDocument(HashMap<String,Integer> words, String pathToFile){
         for(Map.Entry<String,Integer> entry : words.entrySet()){
 
@@ -32,6 +37,11 @@ public class WordSearch {
         }
     }
 
+    /**
+     * Search for a single word in map
+     * @param input
+     * @return ArrayList with path to files containing the word
+     */
     public ArrayList<String> searchWord(String input){
         if(!input.equals("")){
             if(wordInDocument.containsKey(input)){

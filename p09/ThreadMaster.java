@@ -43,8 +43,8 @@ public class ThreadMaster {
                 long stopTime = System.currentTimeMillis();
                 System.out.println("Job FINALLY done in "+(stopTime-startTime));
 
-                if(ws.searchWord("Hello") != null){
-                    for(String asd : ws.searchWord("Hello")){
+                if(ws.searchWord("Gamer") != null){
+                    for(String asd : ws.searchWord("Gamer")){
                         System.out.println(asd);
                     }
                 }
