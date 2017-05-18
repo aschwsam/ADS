@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/DocumentStatistics.java" afterPath="$PROJECT_DIR$/p09/DocumentStatistics.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/ThreadMaster.java" afterPath="$PROJECT_DIR$/p09/ThreadMaster.java" />
     </list>
     <list id="a05c7fef-5c92-4d00-b5ec-cbc092182dcd" name="Rejected commit: Default" comment="add Node" />
@@ -23,11 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="ThreadMaster.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThreadMaster.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="142" column="45" lean-forward="false" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="45" />
+            <state relative-caret-position="-2046">
+              <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentStatistics.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentStatistics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="721">
@@ -163,8 +162,8 @@
         <option value="$PROJECT_DIR$/p09/FileHandler.java" />
         <option value="$PROJECT_DIR$/p09/WordSearch.java" />
         <option value="$PROJECT_DIR$/p09/BTree.java" />
-        <option value="$PROJECT_DIR$/p09/ThreadMaster.java" />
         <option value="$PROJECT_DIR$/p09/DocumentStatistics.java" />
+        <option value="$PROJECT_DIR$/p09/ThreadMaster.java" />
       </list>
     </option>
   </component>
@@ -743,7 +742,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495096978612</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Visual aid&#10;print amount of processed documents on console">
+      <created>1495098197263</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1495098197263</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -792,6 +798,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49893898" order="6" side_tool="false" content_ui="tabs" />
@@ -803,7 +810,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33509582" sideWeight="0.35536253" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2967614" sideWeight="0.4898036" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33509582" sideWeight="0.64463747" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33509582" sideWeight="0.64463747" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49681696" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -831,7 +838,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="return &quot;-1&quot; if edge without weight" />
     <MESSAGE value="add Time Meter" />
     <MESSAGE value="graph" />
     <MESSAGE value="find closest edge" />
@@ -856,7 +862,8 @@
     <MESSAGE value="Small implementation of BTree 1st order for word ranking" />
     <MESSAGE value="Some clean up done&#10;TODO: JUnit" />
     <MESSAGE value="Minor changes&#10;-changed ms to sec for output&#10;-removed unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes&#10;-changed ms to sec for output&#10;-removed unused imports" />
+    <MESSAGE value="Visual aid&#10;print amount of processed documents on console" />
+    <option name="LAST_COMMIT_MESSAGE" value="Visual aid&#10;print amount of processed documents on console" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1168,20 +1175,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
+    <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="142" column="45" lean-forward="false" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="45" />
+        <state relative-caret-position="721">
+          <caret line="167" column="71" lean-forward="false" selection-start-line="167" selection-start-column="71" selection-end-line="167" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
+    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="167" column="71" lean-forward="false" selection-start-line="167" selection-start-column="71" selection-end-line="167" selection-end-column="71" />
+        <state relative-caret-position="-2046">
+          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

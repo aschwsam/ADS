@@ -7,6 +7,18 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * This class reads files recursive from a given directory.
+ * If a search term is omitted the given, a  list is printed
+ * with all files including the search word.
+ * Furthermore the script prints statistics about:
+ * - total amount of parsed documents
+ * - total filesize of all documents
+ * - total amount of unique words
+ * - total of all words
+ * - average of characters per document
+ * - ranking of most used words (default 10, can be changed by user)
+ */
 public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
@@ -19,7 +31,10 @@ public class ThreadMaster {
 
     /**
      * Main method to start the parser
-     * @param Args
+     *
+     * @param Args 0 => Path to files
+     * @param Args 1 => Search term
+     * @param Args 2 => Limit the ranking output
      */
     public static void main(String Args[]){
 
