@@ -1,8 +1,7 @@
 package p09;
 
-import com.sun.org.apache.xpath.internal.Arg;
-
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -14,7 +13,7 @@ public class ThreadMaster {
     private static WordSearch ws = new WordSearch();
     private static BTree bt = new BTree();
 
-    private static int poolSize = 4;  // Limit by cores
+    private static int poolSize = 2;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
     private static ExecutorService executorService;
 
@@ -29,11 +28,18 @@ public class ThreadMaster {
 
         // DEBUG -> readFiles
         if(Args[0]!=null) {
-            readFiles(Args[0]);
+            try{
+                readFiles(Args[0]);
+                System.out.println("Files parsed...");
+            } catch(IOException e){
 
-            System.out.println("Files parsed...");
+                // Terminate logic
+                System.exit(1);
+            }
         } else {
             System.out.println("No directory omitted");
+            // Terminate logic
+            System.exit(1);
         }
 
         // DEBUG -> searchWord
@@ -66,14 +72,14 @@ public class ThreadMaster {
 
         // DEBUG
         long stopTime = System.currentTimeMillis();
-        System.out.println("Job FINALLY done in "+(stopTime-startTime));
+        System.out.println("Job FINALLY done in "+(stopTime-startTime)/1000+"sec");
     }
 
     /**
      * Read all files from given directory
      * @param userPath the directory to use for file indexing
      */
-    public static void readFiles(String userPath){
+    public static void readFiles(String userPath) throws IOException{
         try{
             // Create fileList
             getFilesFromDirectory(new File(userPath));
@@ -88,6 +94,7 @@ public class ThreadMaster {
             }
         } catch (NullPointerException e){
             System.out.println("Unable to read directory!");
+            throw new IOException();
         }
 
     }

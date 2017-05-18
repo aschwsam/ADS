@@ -12,6 +12,7 @@ public class DocumentStatistics {
 
     private long documentSize = 0;
     private int documentCounter = 0;
+    private int documentsParsed = 0;
     private int documentCharactersTotal = 0;
     private int totalWords = 0;
     private int totalUniqueWords = 0;
@@ -19,7 +20,6 @@ public class DocumentStatistics {
     private HashMap<String,Integer> wordRanking = new HashMap<>();
 
     public DocumentStatistics(){
-
     }
 
     /**
@@ -70,10 +70,13 @@ public class DocumentStatistics {
 
     /**
      * Updates character counter over all documents
+     * DEBUG: call getProgressInfo()
      * @param inputdata current document characters
      */
     public synchronized void setDocumentCharacters(int inputdata){
         documentCharactersTotal+=inputdata;
+
+        getProgressInfo();
     }
 
     /**
@@ -155,5 +158,13 @@ public class DocumentStatistics {
      */
     private void setTotalUniqueWords(){
         totalUniqueWords++;
+    }
+
+    /**
+     * Prints update on document parsing progress
+     */
+    private void getProgressInfo(){
+        documentsParsed++;
+        System.out.println(documentsParsed+" / "+documentCounter+" done");
     }
 }
