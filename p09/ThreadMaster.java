@@ -1,5 +1,7 @@
 package p09;
 
+import com.sun.org.apache.xpath.internal.Arg;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,7 +14,7 @@ public class ThreadMaster {
     private static WordSearch ws = new WordSearch();
     private static BTree bt = new BTree();
 
-    private static int poolSize = 2;  // Limit by cores
+    private static int poolSize = 4;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
     private static ExecutorService executorService;
 
@@ -41,7 +43,6 @@ public class ThreadMaster {
             System.out.println("No search word given");
         }
 
-
         // DEBUG -> createWordRanking
         createWordRanking();
 
@@ -65,7 +66,7 @@ public class ThreadMaster {
 
         // DEBUG
         long stopTime = System.currentTimeMillis();
-        System.out.println("Job FINALLY done in "+(stopTime-startTime)/1000+"sec");
+        System.out.println("Job FINALLY done in "+(stopTime-startTime));
     }
 
     /**

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+
 /**
  * This class holds global statistics about the input files
  */

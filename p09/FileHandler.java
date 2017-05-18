@@ -29,7 +29,7 @@ public class FileHandler implements Runnable{
 
         // DEBUG
         //long startTime = System.currentTimeMillis();
-        System.out.println(Thread.currentThread().getName()+" started.");
+        //System.out.println(Thread.currentThread().getName()+" started.");
 
         int wordcount = 0;
         String word = null;
