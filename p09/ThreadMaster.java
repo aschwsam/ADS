@@ -98,16 +98,23 @@ public class ThreadMaster {
      */
     public static void searchWord(String userSearch){
 
-        if(userSearch!=null && ws.searchWord(userSearch) != null){
+        if(userSearch!=null){
 
-            System.out.println("Word "+userSearch+" found in ");
+            System.out.println("Word '"+userSearch+"' found in ");
+
+            int wordCounter=0;
 
             for(String document : ws.searchWord(userSearch)){
                 System.out.println(document);
+                wordCounter++;
+            }
+
+            if(wordCounter==0){
+                System.out.println("not found in documents");
             }
 
         } else {
-            System.out.println("Word not found in documents");
+            System.out.println("Search term not recognized!");
         }
     }
 

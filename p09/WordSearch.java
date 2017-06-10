@@ -43,16 +43,15 @@ public class WordSearch {
      * @return ArrayList with path to files containing the word
      */
     public ArrayList<String> searchWord(String input){
+        ArrayList<String> result = new ArrayList<>();
+
         if(!input.equals("")){
             if(wordInDocument.containsKey(input)){
-                ArrayList<String> result = new ArrayList<>();
-
                 result.addAll(wordInDocument.get(input));
-
                 return result;
             }
         }
 
-        return null;
+        return result;
     }
 }
