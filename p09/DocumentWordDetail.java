@@ -8,6 +8,7 @@ public class DocumentWordDetail {
 
     private HashMap<String, Integer> word_occurence_counter = new HashMap<>();
     private ArrayList<String> word_chain = new ArrayList<>();
+    private String path = "";
 
     public DocumentWordDetail(){
 
@@ -16,6 +17,8 @@ public class DocumentWordDetail {
     public boolean containsWord(String needle){
         return word_occurence_counter.containsKey(needle);
     }
+
+    public HashMap<String,Integer> getWords(){ return word_occurence_counter; }
 
     public void addWord(String word){
         boolean foundWord = false;
@@ -34,7 +37,9 @@ public class DocumentWordDetail {
         word_occurence_counter.put(word,1);
     }
 
-    private void addWordChain(String word){
-        word_chain.add(word);
-    }
+    public void setPath(String path){ this.path = path; }
+
+    public String getPath(){ return path; }
+
+    private void addWordChain(String word){ word_chain.add(word); }
 }

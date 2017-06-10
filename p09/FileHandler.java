@@ -94,6 +94,9 @@ public class FileHandler implements Runnable{
             // Add dwd to dcs
             dcs.addDocumentWordDetail(dwd);
 
+            // add path to dwd
+            dwd.setPath(pathToFile);
+
             // DEBUG
             //long stopTime = System.currentTimeMillis();
             //System.out.println("Job done in "+(stopTime-startTime));

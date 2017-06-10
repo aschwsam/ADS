@@ -64,6 +64,10 @@ public class ThreadMaster {
         System.out.println("Total document size: "+dcs.getDocumentSize());
         System.out.println("Average characters per document: "+dcs.getAverageDocumentCharacters());
 
+        // Try the regex
+        Regex rgx = new Regex(dcs);
+        rgx.parseExpression();
+
         // DEBUG
         long stopTime = System.currentTimeMillis();
         System.out.println("Job FINALLY done in "+(stopTime-startTime));

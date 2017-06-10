@@ -85,6 +85,12 @@ public class DocumentStatistics {
     public synchronized void addDocumentWordDetail(DocumentWordDetail node){ documentWordObject.add(node); }
 
     /**
+     * Get the document word object list
+     * @return DocumentWordDetail Arraylist
+     */
+    public synchronized ArrayList<DocumentWordDetail> getDocumentWordDetail(){ return documentWordObject; }
+
+    /**
      * Updates total document size
      * @param inputdata current document size
      */
