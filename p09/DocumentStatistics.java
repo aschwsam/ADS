@@ -1,5 +1,6 @@
 package p09;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class DocumentStatistics {
     private int totalUniqueWords = 0;
     private HashSet<String> uniqueWords = new HashSet<>();
     private HashMap<String,Integer> wordRanking = new HashMap<>();
+    private ArrayList<DocumentWordDetail> documentWordObject = new ArrayList<>();
 
     public DocumentStatistics(){
 
@@ -75,6 +77,12 @@ public class DocumentStatistics {
     public synchronized void setDocumentCharacters(int inputdata){
         documentCharactersTotal+=inputdata;
     }
+
+    /**
+     * Adds a new DocumentWordDetail Object to the global list
+     * @param node
+     */
+    public synchronized void addDocumentWordDetail(DocumentWordDetail node){ documentWordObject.add(node); }
 
     /**
      * Updates total document size

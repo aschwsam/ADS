@@ -14,6 +14,7 @@ public class FileHandler implements Runnable{
     private DocumentStatistics dcs;
     private WordSearch ws;
     private int totalCharacters = 0;
+    private DocumentWordDetail dwd = new DocumentWordDetail();
 
     public FileHandler(String pathToFile,DocumentStatistics dcs, WordSearch ws){
         this.pathToFile = pathToFile;
@@ -46,6 +47,9 @@ public class FileHandler implements Runnable{
                 word = removeSpecialChar(scanner.next());
 
                 if(word.length()>0){
+
+                    // Send it to DocumentWordDetail
+                    dwd.addWord(word);
 
                     wordcount++;
 
@@ -86,6 +90,9 @@ public class FileHandler implements Runnable{
 
             // Send words to ws
             ws.addWordInDocument(wordEncounter, pathToFile);
+
+            // Add dwd to dcs
+            dcs.addDocumentWordDetail(dwd);
 
             // DEBUG
             //long stopTime = System.currentTimeMillis();
