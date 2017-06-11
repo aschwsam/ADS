@@ -4,7 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="&quot;regex&quot;-search with two words working (AND)&#10;TODO: implement OR">
+    <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/Regex.java" afterPath="$PROJECT_DIR$/p09/Regex.java" />
     </list>
@@ -47,8 +47,8 @@
       <file leaf-file-name="Regex.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/p09/Regex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="207" column="30" lean-forward="false" selection-start-line="207" selection-start-column="30" selection-end-line="207" selection-end-column="30" />
+            <state relative-caret-position="818">
+              <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -788,7 +788,7 @@
       <workItem from="1496486939312" duration="3218000" />
       <workItem from="1497090982685" duration="11977000" />
       <workItem from="1497180775175" duration="8000" />
-      <workItem from="1497183211268" duration="3036000" />
+      <workItem from="1497183211268" duration="3233000" />
     </task>
     <task id="LOCAL-00001" summary="add Edge">
       <created>1490798813390</created>
@@ -1049,7 +1049,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497129613011</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2">
+      <created>1497186372708</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1497186372708</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1085,7 +1092,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59239000" />
+    <option name="totallyTimeSpent" value="59436000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1109,7 +1116,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29509044" sideWeight="0.36445624" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29509044" sideWeight="0.63554376" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29509044" sideWeight="0.63554376" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2966408" sideWeight="0.4867374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49681696" order="7" side_tool="false" content_ui="tabs" />
@@ -1138,7 +1145,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="find closest edge" />
     <MESSAGE value="small fix for NullPointerException in Dijkstra class (check for null first on line 43/46)" />
     <MESSAGE value="Winterthur - Lugano works. Others don't..." />
     <MESSAGE value="PathElement added" />
@@ -1163,7 +1169,8 @@
     <MESSAGE value="Read input and split into parts for regex" />
     <MESSAGE value="Created DWD Class to store:&#10;- Words per document&#10;- Order of words in document&#10;Updated DCS to store DWD" />
     <MESSAGE value="&quot;regex&quot;-search with two words working (AND)&#10;TODO: implement OR" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;regex&quot;-search with two words working (AND)&#10;TODO: implement OR" />
+    <MESSAGE value="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1535,8 +1542,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/p09/Regex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="207" column="30" lean-forward="false" selection-start-line="207" selection-start-column="30" selection-end-line="207" selection-end-column="30" />
+        <state relative-caret-position="818">
+          <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -120,12 +120,7 @@ public class Regex {
                 commands.add(expression);
             }
 
-            // TODO: Remove this debug loop
-            for(String expression_parts : commands) {
-                System.out.println('"' + expression_parts + '"');
-                System.out.println("=======");
-            }
-
+            // Run regex
             determineSituation();
 
         } catch (IOException e){
@@ -194,7 +189,7 @@ public class Regex {
         // Print the files
         Iterator<DocumentWordDetail> it = subset.iterator();
         while(it.hasNext()){
-            System.out.println("########### "+it.next().getPath());
+            System.out.println("Expression matched in file "+it.next().getPath());
         }
     }
 
@@ -226,11 +221,6 @@ public class Regex {
                 }
             }
         }
-
-        Iterator<DocumentWordDetail> asd = subset.iterator();
-        while(asd.hasNext()){
-            System.out.println("==> "+asd.next().getPath());
-        }
     }
 
     /**
@@ -259,11 +249,5 @@ public class Regex {
                 }
             }
         }
-
-        Iterator<DocumentWordDetail> asd = subset.iterator();
-        while(asd.hasNext()){
-            System.out.println("==> "+asd.next().getPath());
-        }
-        System.out.println("======");
     }
 }
