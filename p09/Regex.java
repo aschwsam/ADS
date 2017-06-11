@@ -2,15 +2,16 @@ package p09;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class Regex {
 
     private int exp_value_reading = 0;
+    private boolean conjunction = true;
     private ArrayList<String> commands = new ArrayList<>();
     private HashSet<Character> blacklist = new HashSet<>();
+    HashSet<DocumentWordDetail> subset = new HashSet<>();
     private DocumentStatistics dcs;
 
     /**
@@ -119,8 +120,9 @@ public class Regex {
                 commands.add(expression);
             }
 
-            for(String expression_parts : commands){
-                System.out.println('"'+expression_parts+'"');
+            // TODO: Remove this debug loop
+            for(String expression_parts : commands) {
+                System.out.println('"' + expression_parts + '"');
                 System.out.println("=======");
             }
 
@@ -136,9 +138,7 @@ public class Regex {
      */
     private void determineSituation(){
 
-        HashSet<DocumentWordDetail> dwd = new HashSet<>();
-
-        // Stripp "&&" / "||" from String
+        // Strip "&&" / "||" from String
         ArrayList<String> positive_or_negative = new ArrayList<>();
         for(String value : commands){
             if(!value.equals("&&") && !value.equals("||")){
@@ -146,21 +146,24 @@ public class Regex {
             }
         }
 
+        // Default operation is && => conjunction = true;
+        if(commands.contains("||")){
+            conjunction = false;
+        }
+
         switch(positive_or_negative.size()){
             case 1:
                 // Only one word -> 1st word positive
-                dwd=getPositiveDataset(positive_or_negative.get(0),null);
-                //System.out.println("Positive one word");
+                getPositiveDataset(positive_or_negative.get(0));
                 break;
 
             case 2:
                 // 2 words OR 1st word negative
                 if(positive_or_negative.get(0).equals("!")){
-                    dwd=getNegativeDataset(positive_or_negative.get(1),null);
-                    //System.out.println("Negative one word");
+                    getNegativeDataset(positive_or_negative.get(1));
                 } else {
-                    dwd=getPositiveDataset(positive_or_negative.get(1),getPositiveDataset(positive_or_negative.get(0),null));
-                    //System.out.println("Positive first word; Positive second word");
+                    getPositiveDataset(positive_or_negative.get(1));
+                    getPositiveDataset(positive_or_negative.get(0));
                 }
                 break;
 
@@ -170,51 +173,49 @@ public class Regex {
                     // First one is negative
 
                     // get negative and pass subset to positive
-                    dwd=getPositiveDataset(positive_or_negative.get(2),getNegativeDataset(positive_or_negative.get(1),null));
-                    //System.out.println("Negative first word; Positive second word");
+                    getPositiveDataset(positive_or_negative.get(2));
+                    getNegativeDataset(positive_or_negative.get(1));
                 } else {
                     // Second one is negative
 
                     // get dataset for positive
-                    dwd=getPositiveDataset(positive_or_negative.get(0),getNegativeDataset(positive_or_negative.get(2),null));
-                    //System.out.println("Positive first word; Negative second word");
+                    getPositiveDataset(positive_or_negative.get(0));
+                    getNegativeDataset(positive_or_negative.get(2));
                 }
                 break;
 
             case 4:
                 // 2 words, both negative
-                dwd=getNegativeDataset(positive_or_negative.get(1),null);
-                //System.out.println("Negative first word; Negative second word");
+                getNegativeDataset(positive_or_negative.get(1));
+                getNegativeDataset(positive_or_negative.get(3));
                 break;
         }
 
         // Print the files
-        Iterator<DocumentWordDetail> it = dwd.iterator();
+        Iterator<DocumentWordDetail> it = subset.iterator();
         while(it.hasNext()){
-            System.out.println(it.next().getPath());
+            System.out.println("########### "+it.next().getPath());
         }
     }
 
     /**
      * Loop over given files and remove files from list if needle is not present
      * @param needle
-     * @param knownRecords
      * @return
      */
-    private HashSet<DocumentWordDetail> getPositiveDataset(String needle,HashSet<DocumentWordDetail> knownRecords){
-        HashSet<DocumentWordDetail> subset = new HashSet<>();
+    private void getPositiveDataset(String needle){
 
-        if(knownRecords!=null) {
+        if(subset.size()>0 && conjunction) {
 
             // Search for needle in already selected documents
-            Iterator<DocumentWordDetail> it = knownRecords.iterator();
+            Iterator<DocumentWordDetail> it = subset.iterator();
             while(it.hasNext()) {
 
                 DocumentWordDetail dwd = it.next();
 
                 if(!dwd.containsWord(needle)) {
                     // Remove from subset
-                    subset.remove(dwd);
+                    it.remove();
                 }
             }
         } else {
@@ -226,27 +227,28 @@ public class Regex {
             }
         }
 
-        return subset;
+        Iterator<DocumentWordDetail> asd = subset.iterator();
+        while(asd.hasNext()){
+            System.out.println("==> "+asd.next().getPath());
+        }
     }
 
     /**
      * If a given subset contains files, remove files which contain the needle
      * @param needle (search term)
-     * @param knownRecords (subset)
      * @return HashSet with files
      */
-    private HashSet<DocumentWordDetail> getNegativeDataset(String needle,HashSet<DocumentWordDetail> knownRecords){
-        HashSet<DocumentWordDetail> subset = new HashSet<>();
+    private void getNegativeDataset(String needle){
 
-        if(knownRecords!=null){
+        if(subset.size()>0 && conjunction){
 
-            Iterator<DocumentWordDetail> it = knownRecords.iterator();
+            Iterator<DocumentWordDetail> it = subset.iterator();
             while(it.hasNext()){
                 DocumentWordDetail dwd = it.next();
 
                 if(dwd.containsWord(needle)){
                     // Remove from subset
-                    subset.remove(dwd);
+                    it.remove();
                 }
             }
         } else {
@@ -258,6 +260,10 @@ public class Regex {
             }
         }
 
-        return subset;
+        Iterator<DocumentWordDetail> asd = subset.iterator();
+        while(asd.hasNext()){
+            System.out.println("==> "+asd.next().getPath());
+        }
+        System.out.println("======");
     }
 }
