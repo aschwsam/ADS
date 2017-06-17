@@ -65,6 +65,15 @@ public class ThreadMaster {
         System.out.println("Job FINALLY done in "+(stopTime-startTime));
     }
 
+    /**
+     * Constructor to run script with console menu
+     * @param ps int thread pool size
+     * @param wordRankingEnabled boolean
+     * @param wordRankingDepth int top X words
+     * @param statisticsEnabled boolean
+     * @param searchTerm String user expression
+     * @param sourceFilePath String
+     */
     public ThreadMaster(int ps, boolean wordRankingEnabled, int wordRankingDepth, boolean statisticsEnabled, String searchTerm, String sourceFilePath){
         poolSize = ps;
 

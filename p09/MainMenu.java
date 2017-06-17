@@ -1,11 +1,15 @@
 package p09;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * A simple main menu for the script ( console based)
+ * the script can also be started via console parameter (Threadmaster class)
+ */
 public class MainMenu {
 
+    // Options for the parser
     private static int threadCount = 4;
     private static int wordRankingDepth = 5;
     private static boolean wordRanking = true;
@@ -14,10 +18,14 @@ public class MainMenu {
     private static String searchPath = null;
     private static String sourceFilesPath = null;
 
+    // Options for menu
     private static ThreadMaster tm;
     private static boolean tmRunning = false;
     private static int tempNumber = 1;
     private static String tempText = null;
+
+    // Options for main menu status
+    private static final int RUN = 7;
     private static final int EXIT = 8;
 
 
@@ -66,8 +74,7 @@ public class MainMenu {
                     setSearchPath("a path to the file");
                     break;
                 */
-                case 7:
-                    // RUUUUN
+                case RUN:
                     if(!tmRunning){
                         if(sourceFilesPath!=null){
                             tm = new ThreadMaster(threadCount, wordRanking, wordRankingDepth, statistics, searchTerm, sourceFilesPath);
@@ -89,10 +96,11 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Print the available options
+     * @return int user selected part of the script to be run
+     */
     private static int displayMenu(){
-
-
-
         System.out.println();
         System.out.println("Program specific options");
         System.out.println("1 - Set amount of threads ("+threadCount+")");
@@ -103,13 +111,17 @@ public class MainMenu {
         System.out.println("Runtime options");
         System.out.println("6 - Enter an expression / word to search for in files ('"+searchTerm+"')");
         //System.out.println("7 - Enter a path to a file containing an expression to search for in files ('"+searchPath+"')");
-        System.out.println("7 - Run parser");
+        System.out.println(RUN+" - Run parser");
         System.out.println(EXIT+" - Exit");
         System.out.println();
 
         return numberScanner();
     }
 
+    /**
+     * Reads an integer number from the console
+     * @return int user value
+     */
     private static int numberScanner(){
         Scanner input = new Scanner(System.in);
 
@@ -121,6 +133,10 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Reads a String from the console
+     * @return String uservalue
+     */
     private static String textScanner(){
 
         Scanner input = new Scanner(System.in);
@@ -132,6 +148,11 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Proxy for textScanner and method requiring a String value from user
+     * @param directions String description of value user should input
+     * @return boolean true if new value should be picked up, false if user cancelled action
+     */
     private static boolean textHandler(String directions){
         System.out.println("Please enter a "+directions);
         System.out.println("\tTo reset the search term enter 'null'");
@@ -152,6 +173,10 @@ public class MainMenu {
         return false;
     }
 
+    /**
+     * Proxy for numberScanner and method requiring a int value from user
+     * @return boolean true if new value should be picked up, false if user cancelled action
+     */
     private static boolean numberHandler(){
         System.out.println("Please enter a number > 0");
 
@@ -170,6 +195,9 @@ public class MainMenu {
         return true;
     }
 
+    /**
+     * Set the amount of threads to spawn
+     */
     private static void setThreads(){
         if(numberHandler()){
             threadCount = tempNumber;
@@ -177,16 +205,25 @@ public class MainMenu {
         return;
     }
 
+    /**
+     * Switch word ranking display (on / off)
+     */
     private static void toggleWordRanking(){
         wordRanking ^=true;
         return;
     }
 
+    /**
+     * Switch document detail statistics display (on / off)
+     */
     private static void toggleStatistics(){
         statistics ^=true;
         return;
     }
 
+    /**
+     * Define how long the top X should be
+     */
     private static void setWordRankingDepth(){
         if(numberHandler()){
             wordRankingDepth = tempNumber;
@@ -195,6 +232,9 @@ public class MainMenu {
 
     }
 
+    /**
+     * Set the user search expression
+     */
     private static void setSearchTerm(String directions){
         if(textHandler(directions)){
             searchTerm = tempText;
@@ -203,6 +243,9 @@ public class MainMenu {
         return;
     }
 
+    /**
+     * Set the path to look for user search expression
+     */
     private static void setSearchPath(String directions){
         if(textHandler(directions)){
             searchPath = tempText;
@@ -211,6 +254,9 @@ public class MainMenu {
         return;
     }
 
+    /**
+     * Set path to source files the parser should read
+     */
     private static void setSourcePath(){
         if(textHandler("path to the source files")){
             sourceFilesPath = tempText;
