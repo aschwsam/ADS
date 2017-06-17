@@ -9,24 +9,15 @@ public class Regex {
 
     private int exp_value_reading = 0;
     private boolean conjunction = true;
+    private String expression_words = null;
     private ArrayList<String> commands = new ArrayList<>();
     private HashSet<Character> blacklist = new HashSet<>();
-    HashSet<DocumentWordDetail> subset = new HashSet<>();
+    private HashSet<DocumentWordDetail> subset = new HashSet<>();
     private DocumentStatistics dcs;
 
-    /**
-     * TODO: Remove this main
-     */
-    public static void main(String Args[]){
-        Regex rg = new Regex(new DocumentStatistics());
-        rg.parseExpression();
-    }
-
     public Regex(DocumentStatistics dcs) {
-        // Constructor
 
         this.dcs = dcs;
-
         blacklist.add('!');
         blacklist.add('(');
         blacklist.add(')');
@@ -34,104 +25,60 @@ public class Regex {
     }
 
     /**
-     * Reads a file with a regular expression ((!)Word 1 &&|| (!)Word 2)
-     * Generates a list of all files that match the regex
+     * Reads a regular expression (String) as argument and returns all matching documents
+     * @param user_expression String search term
+     * @return ArrayList<String> path-to-file
      */
-    public void parseExpression(){
+    public ArrayList<String> parseExpressionFromString(String user_expression){
+        for(int i=0; i<user_expression.length(); i++) {
+            createCommands(user_expression.charAt(i));
+        }
+
+        if(expression_words!=null){
+            commands.add(expression_words);
+        }
+
+        // Run regex
+        return determineSituation();
+    }
+
+    /**
+     * Reads a regular expression from a file and returns all matching documents
+     * TODO: Switch from hard coded link to user argument
+     * @return ArrayList<String> path-to-file
+     */
+    public ArrayList<String> parseExpressionFromFile(){
         try {
             InputStream in = new FileInputStream("C:\\Users\\Sam\\Desktop\\ADS_Regex\\expression.txt");
             Reader reader = new InputStreamReader(in, "UTF-8");
             Reader buffer = new BufferedReader(reader);
 
             int r;
-            char input;
-            String expression = null;
             while ((r = buffer.read()) != -1) {
-                input = (char) r;
-
-                switch(input){
-                    case '!':
-                        commands.add("!");
-                        exp_value_reading = 1;
-                        break;
-
-                    case ' ':
-                        if(exp_value_reading == 1){
-
-                            // Stop reading
-                            exp_value_reading = 0;
-                        }
-                        break;
-
-                    case '"':
-                        if(exp_value_reading == 2){
-                            exp_value_reading = 0;
-                        } else {
-                            exp_value_reading = 2;
-                        }
-                        break;
-
-                    case '(':
-                        exp_value_reading = 3;
-                        commands.add("*");
-                        break;
-
-                    case ')':
-                        exp_value_reading = 0;
-                        break;
-
-                    default:
-                        if(exp_value_reading == 0){
-                            exp_value_reading = 1;
-                        }
-                        break;
-                }
-
-                if(exp_value_reading>0){
-
-                    if(!blacklist.contains(input)){
-                        if(expression == null){
-                            expression = String.valueOf(input);
-                        } else {
-                            expression += String.valueOf(input);
-                        }
-                    }
-                } else {
-                    if(expression != null){
-
-                        // Splitt on || or &&
-                        if(expression.contains(" || ") || expression.contains(" && ")){
-                            for(String parts : expression.split(" ")){
-                                commands.add(parts);
-                            }
-                        } else {
-                            commands.add(expression);
-                        }
-
-                        if(input == ')'){
-                            commands.add("*");
-                        }
-                        expression = null;
-                    }
-                }
+                createCommands((char) r);
             }
 
-            if(expression!=null){
-                commands.add(expression);
+            if(expression_words!=null){
+                commands.add(expression_words);
             }
 
             // Run regex
-            determineSituation();
+            return determineSituation();
 
         } catch (IOException e){
             e.printStackTrace();
+
+            return null;
         }
     }
 
     /**
-     * Check if one or two words are used, then check if any of them are a inverted (!)
+     * Check if one or two words are used
+     * Check if any of them are a inverted (!)
+     * Merge the subsets
+     * @return ArrayList<String> result set
      */
-    private void determineSituation(){
+    private ArrayList<String> determineSituation(){
 
         // Strip "&&" / "||" from String
         ArrayList<String> positive_or_negative = new ArrayList<>();
@@ -186,17 +133,95 @@ public class Regex {
                 break;
         }
 
-        // Print the files
+        // Convert ArrayList from subset and return
+        ArrayList<String> resultset = new ArrayList<>();
         Iterator<DocumentWordDetail> it = subset.iterator();
         while(it.hasNext()){
-            System.out.println("Expression matched in file "+it.next().getPath());
+            resultset.add(it.next().getPath());
+            //System.out.println("Expression matched in file "+it.next().getPath());
+        }
+
+        return resultset;
+    }
+
+    /**
+     * Creates a ArrayList with each word/expression depending on the current position.
+     * Eg. '"lorem ipsum"' is one word and 'lorem ipsum' are two words because of the missing quotation mark
+     * @param input char
+     */
+    private void createCommands(char input){
+
+        switch(input){
+            case '!':
+                commands.add("!");
+                exp_value_reading = 1;
+                break;
+
+            case ' ':
+                if(exp_value_reading == 1){
+
+                    // Stop reading
+                    exp_value_reading = 0;
+                }
+                break;
+
+            case '"':
+                if(exp_value_reading == 2){
+                    exp_value_reading = 0;
+                } else {
+                    exp_value_reading = 2;
+                }
+                break;
+
+            case '(':
+                exp_value_reading = 3;
+                commands.add("*");
+                break;
+
+            case ')':
+                exp_value_reading = 0;
+                break;
+
+            default:
+                if(exp_value_reading == 0){
+                    exp_value_reading = 1;
+                }
+                break;
+        }
+
+        if(exp_value_reading>0){
+
+            if(!blacklist.contains(input)){
+                if(expression_words == null){
+                    expression_words = String.valueOf(input);
+                } else {
+                    expression_words += String.valueOf(input);
+                }
+            }
+        } else {
+            if(expression_words != null){
+
+                // Splitt on || or &&
+                if(expression_words.contains(" || ") || expression_words.contains(" && ")){
+                    for(String parts : expression_words.split(" ")){
+                        commands.add(parts);
+                    }
+                } else {
+                    commands.add(expression_words);
+                }
+
+                if(input == ')'){
+                    commands.add("*");
+                }
+
+                expression_words = null;
+            }
         }
     }
 
     /**
-     * Loop over given files and remove files from list if needle is not present
-     * @param needle
-     * @return
+     * Creates or modifies a subset of files which DO contain the search term
+     * @param needle String searchterm
      */
     private void getPositiveDataset(String needle){
 
@@ -224,9 +249,8 @@ public class Regex {
     }
 
     /**
-     * If a given subset contains files, remove files which contain the needle
-     * @param needle (search term)
-     * @return HashSet with files
+     * Creates or modifies a subset of files which DO NOT contain the search term
+     * @param needle String searchterm
      */
     private void getNegativeDataset(String needle){
 

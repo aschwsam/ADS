@@ -12,14 +12,12 @@ public class FileHandler implements Runnable{
 
     private String pathToFile;
     private DocumentStatistics dcs;
-    private WordSearch ws;
     private int totalCharacters = 0;
     private DocumentWordDetail dwd = new DocumentWordDetail();
 
-    public FileHandler(String pathToFile,DocumentStatistics dcs, WordSearch ws){
+    public FileHandler(String pathToFile,DocumentStatistics dcs){
         this.pathToFile = pathToFile;
         this.dcs = dcs;
-        this.ws = ws;
     }
 
     /**
@@ -87,9 +85,6 @@ public class FileHandler implements Runnable{
 
             // Send document characters to dcs
             dcs.setDocumentCharacters(totalCharacters);
-
-            // Send words to ws
-            ws.addWordInDocument(wordEncounter, pathToFile);
 
             // Add dwd to dcs
             dcs.addDocumentWordDetail(dwd);

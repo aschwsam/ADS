@@ -39,9 +39,6 @@ public class DocumentStatistics {
     public synchronized void setUniqueWord(String inputdata){
         if(!uniqueWords.contains(inputdata)){
 
-            // TODO: Remove debug
-            //System.out.println(inputdata);
-
             setTotalUniqueWords();
             uniqueWords.add(inputdata);
         }

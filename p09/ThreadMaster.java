@@ -11,9 +11,8 @@ import java.util.concurrent.Executors;
 public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
-    private static WordSearch ws = new WordSearch();
+    private static Regex rgx = new Regex(dcs);
     private static BTree bt = new BTree();
-
     private static int poolSize = 4;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
     private static ExecutorService executorService;
@@ -64,10 +63,6 @@ public class ThreadMaster {
         System.out.println("Total document size: "+dcs.getDocumentSize());
         System.out.println("Average characters per document: "+dcs.getAverageDocumentCharacters());
 
-        // Try the regex
-        Regex rgx = new Regex(dcs);
-        rgx.parseExpression();
-
         // DEBUG
         long stopTime = System.currentTimeMillis();
         System.out.println("Job FINALLY done in "+(stopTime-startTime));
@@ -97,28 +92,28 @@ public class ThreadMaster {
     }
 
     /**
-     * Prints a list of all documents containing a specific word
-     * @param userSearch word in question
+     * Prints a list of all documents containing a specific word or expression
+     * @param userSearch word or expression
      */
     public static void searchWord(String userSearch){
-
-        if(userSearch!=null){
-
-            System.out.println("Word '"+userSearch+"' found in ");
-
-            int wordCounter=0;
-
-            for(String document : ws.searchWord(userSearch)){
-                System.out.println(document);
-                wordCounter++;
-            }
-
-            if(wordCounter==0){
-                System.out.println("not found in documents");
-            }
-
+        if(userSearch==null || userSearch.length()==0){
+            System.out.println("No search term given!");
         } else {
-            System.out.println("Search term not recognized!");
+            if(userSearch.contains("||") || userSearch.contains("&&") || userSearch.contains(" ")){
+                System.out.println("Searching with regular expression '"+userSearch+"'");
+            } else {
+                System.out.println("Searching word '"+userSearch+"'");
+            }
+        }
+
+        boolean foundValue = false;
+        for(String pathToFiles : rgx.parseExpressionFromString(userSearch)){
+            System.out.println("Found in: "+pathToFiles);
+            foundValue = true;
+        }
+
+        if(!foundValue){
+            System.out.println("Word not found in documents");
         }
     }
 
@@ -200,7 +195,7 @@ public class ThreadMaster {
 
         // Queue tasks
         for(String path : fileList){
-            executorService.submit(new FileHandler(path,dcs,ws));
+            executorService.submit(new FileHandler(path,dcs));
         }
     }
 }
