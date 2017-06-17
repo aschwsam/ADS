@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4019e6cb-97f4-4d19-b3a9-4cf43fa742d1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/p09/WordSearch.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/p09/MainMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/DocumentStatistics.java" afterPath="$PROJECT_DIR$/p09/DocumentStatistics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/FileHandler.java" afterPath="$PROJECT_DIR$/p09/FileHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/Regex.java" afterPath="$PROJECT_DIR$/p09/Regex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p09/ThreadMaster.java" afterPath="$PROJECT_DIR$/p09/ThreadMaster.java" />
     </list>
     <list id="a05c7fef-5c92-4d00-b5ec-cbc092182dcd" name="Rejected commit: Default" comment="add Node" />
@@ -29,8 +26,22 @@
       <file leaf-file-name="ThreadMaster.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-875">
-              <caret line="94" column="78" lean-forward="false" selection-start-line="94" selection-start-column="78" selection-end-line="94" selection-end-column="78" />
+            <state relative-caret-position="-2875">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5001#5002#0" expanded="true" />
+                <element signature="e#5048#5049#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/p09/MainMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1550">
+              <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,7 +52,7 @@
       <file leaf-file-name="FileHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1505">
+            <state relative-caret-position="425">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
@@ -51,8 +62,8 @@
       <file leaf-file-name="Regex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/Regex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3682">
-              <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            <state relative-caret-position="850">
+              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,12 +71,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentStatistics.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentStatistics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="999">
+              <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,9 +86,11 @@
       <file leaf-file-name="DocumentWordDetail.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/DocumentWordDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
+            <state relative-caret-position="1025">
               <caret line="43" column="67" lean-forward="false" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +98,8 @@
       <file leaf-file-name="BTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p09/BTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3250">
-              <caret line="132" column="88" lean-forward="false" selection-start-line="132" selection-start-column="88" selection-end-line="132" selection-end-column="88" />
+            <state relative-caret-position="431">
+              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,6 +120,7 @@
       <find>c</find>
       <find>start</find>
       <find>ws</find>
+      <find>rgx</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/p02/MyStack.java" />
         <option value="$PROJECT_DIR$/p02/MyStackTest.java" />
         <option value="$PROJECT_DIR$/p01/Main.java" />
         <option value="$PROJECT_DIR$/p03/binarytree/TreeNode.java" />
@@ -174,6 +189,7 @@
         <option value="$PROJECT_DIR$/p09/WordSearch.java" />
         <option value="$PROJECT_DIR$/p09/Regex.java" />
         <option value="$PROJECT_DIR$/p09/ThreadMaster.java" />
+        <option value="$PROJECT_DIR$/p09/MainMenu.java" />
       </list>
     </option>
   </component>
@@ -273,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ThreadMaster">
+  <component name="RunManager" selected="Application.MainMenu">
     <configuration default="false" name="AlgorithmTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="praktikum3" />
@@ -697,9 +713,9 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Regex" type="Application" factoryName="Application">
+    <configuration default="false" name="MainMenu" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="p09.Regex" />
+      <option name="MAIN_CLASS_NAME" value="p09.MainMenu" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -713,7 +729,7 @@
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.Regex" />
+      <item index="0" class="java.lang.String" itemvalue="Application.MainMenu" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.AlgorithmTest" />
       <item index="2" class="java.lang.String" itemvalue="Application.ThreadMaster" />
     </list>
@@ -749,7 +765,7 @@
       <workItem from="1497255833368" duration="806000" />
       <workItem from="1497436512471" duration="405000" />
       <workItem from="1497439867286" duration="601000" />
-      <workItem from="1497695674874" duration="4326000" />
+      <workItem from="1497695674874" duration="12992000" />
     </task>
     <task id="LOCAL-00001" summary="add Edge">
       <created>1490798813390</created>
@@ -1024,7 +1040,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497186469947</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Simplified word/expression search">
+      <created>1497700035275</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1497700035275</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1060,7 +1083,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65862000" />
+    <option name="totallyTimeSpent" value="74528000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1078,14 +1101,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49893898" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4031008" sideWeight="0.47374004" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4031008" sideWeight="0.47267905" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29509044" sideWeight="0.36976126" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34470284" sideWeight="0.37108752" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2966408" sideWeight="0.4867374" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29509044" sideWeight="0.6302387" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34470284" sideWeight="0.62891245" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971576" sideWeight="0.49681696" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1113,7 +1136,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Winterthur - Lugano works. Others don't..." />
     <MESSAGE value="PathElement added" />
     <MESSAGE value="Pathlength total" />
     <MESSAGE value="started p06" />
@@ -1138,7 +1160,8 @@
     <MESSAGE value="&quot;regex&quot;-search with two words working (AND)&#10;TODO: implement OR" />
     <MESSAGE value="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2" />
     <MESSAGE value="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2&#10;&#10;-removed debug output" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple regex search with two words&#10;() = Optional, Conjunction is &amp;&amp; (AND) or || (OR)&#10;(!)word_1 [&amp;&amp; / ||] (!)word_2&#10;&#10;-removed debug output" />
+    <MESSAGE value="Simplified word/expression search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified word/expression search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1174,7 +1197,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/window.txt" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1419,22 +1441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/DocumentWordDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="43" column="67" lean-forward="false" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1505">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/p09/WordSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1443,28 +1449,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/p09/BTree.java">
+    <entry file="file://$PROJECT_DIR$/p09/DocumentWordDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3250">
-          <caret line="132" column="88" lean-forward="false" selection-start-line="132" selection-start-column="88" selection-end-line="132" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p09/Regex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3682">
-          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-875">
-          <caret line="94" column="78" lean-forward="false" selection-start-line="94" selection-start-column="78" selection-end-line="94" selection-end-column="78" />
+        <state relative-caret-position="1025">
+          <caret line="43" column="67" lean-forward="false" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1473,9 +1461,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/p09/DocumentStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        <state relative-caret-position="999">
+          <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p09/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p09/BTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p09/Regex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p09/ThreadMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2875">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5001#5002#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p09/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1550">
+          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

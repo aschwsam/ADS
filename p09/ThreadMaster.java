@@ -1,7 +1,5 @@
 package p09;
 
-import com.sun.org.apache.xpath.internal.Arg;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,7 +9,6 @@ import java.util.concurrent.Executors;
 public class ThreadMaster {
 
     private static DocumentStatistics dcs = new DocumentStatistics();
-    private static Regex rgx = new Regex(dcs);
     private static BTree bt = new BTree();
     private static int poolSize = 4;  // Limit by cores
     private static ArrayList<String> fileList = new ArrayList<>();
@@ -68,6 +65,33 @@ public class ThreadMaster {
         System.out.println("Job FINALLY done in "+(stopTime-startTime));
     }
 
+    public ThreadMaster(int ps, boolean wordRankingEnabled, int wordRankingDepth, boolean statisticsEnabled, String searchTerm, String sourceFilePath){
+        poolSize = ps;
+
+        // run parser
+        readFiles(sourceFilePath);
+
+        if(wordRankingEnabled){
+            createWordRanking();
+
+            System.out.println("Top "+wordRankingDepth+" are:");
+
+            getTopWords(wordRankingDepth);
+        }
+
+        if(statisticsEnabled){
+            System.out.println("Total words: "+dcs.getWordcount());
+            System.out.println("Total unique words: "+dcs.getDifferentWordcount());
+            System.out.println("Total documents: "+dcs.getDocumentCounter());
+            System.out.println("Total document size: "+dcs.getDocumentSize());
+            System.out.println("Average characters per document: "+dcs.getAverageDocumentCharacters());
+        }
+
+        if(searchTerm!=null){
+            searchWord(searchTerm);
+        }
+    }
+
     /**
      * Read all files from given directory
      * @param userPath the directory to use for file indexing
@@ -107,6 +131,9 @@ public class ThreadMaster {
         }
 
         boolean foundValue = false;
+
+        Regex rgx = new Regex(dcs);
+
         for(String pathToFiles : rgx.parseExpressionFromString(userSearch)){
             System.out.println("Found in: "+pathToFiles);
             foundValue = true;
